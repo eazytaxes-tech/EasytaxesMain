@@ -1,17 +1,11 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Users, Target, Heart, Award } from "lucide-react";
+import { Target, Shield, Users, CheckCircle2 } from "lucide-react";
 
 export default function AboutUs() {
-    const team = [
-        { name: "Sarah Johnson", role: "Managing Partner", bio: "Former Big 4 Director with 15+ years in corporate tax." },
-        { name: "Michael Chen", role: "Head of Advisory", bio: "Specializes in M&A due diligence and valuation services." },
-        { name: "Elena Rodriguez", role: "Tax Resolution Lead", bio: "Expert in negotiating complex settlements with the IRS." }
-    ];
-
     return (
-        <div className="min-h-screen bg-slate-50 font-sans">
+        <div className="min-h-screen bg-slate-50">
             <Navbar />
 
             {/* Hero */}
@@ -23,51 +17,99 @@ export default function AboutUs() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
                     >
-                        Our Mission & Team
+                        About Eazytaxes Inc.
                     </motion.h1>
-                    <p className="text-xl md:text-2xl text-blue-50 max-w-3xl mx-auto mb-10 font-light">
-                        Redefining the standard of tax and financial advisory through transparency and expertise.
+                    <p className="text-xl md:text-2xl text-blue-50 max-w-3xl mx-auto font-light">
+                        A US-based professional services firm offering tax, compliance, assurance, and advisory services to businesses and individuals.
                     </p>
                 </div>
             </section>
 
-            {/* Mission Values */}
+            {/* Core Values */}
             <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Approach</h2>
+                    <p className="text-slate-600 max-w-2xl mx-auto">We provide clarity, control, and accountability across all service lines.</p>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <Target className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold mb-2">Precision</h3>
-                        <p className="text-slate-600">We believe in accuracy above all. Every number matters.</p>
+                        <Target className="w-12 h-12 text-primary mx-auto mb-4" />
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">Clarity</h3>
+                        <p className="text-slate-600">Clear communication and transparent processes in every engagement.</p>
                     </div>
                     <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <Heart className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold mb-2">Client-Centric</h3>
-                        <p className="text-slate-600">Your financial health and peace of mind are our top priorities.</p>
+                        <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">Control</h3>
+                        <p className="text-slate-600">Structured workflows and defined deliverables you can rely on.</p>
                     </div>
                     <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <Award className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold mb-2">Excellence</h3>
-                        <p className="text-slate-600">We strive for the highest standards in professional service.</p>
+                        <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-4" />
+                        <h3 className="text-xl font-bold mb-2 text-slate-900">Accountability</h3>
+                        <p className="text-slate-600">Responsive service and ownership of outcomes from start to finish.</p>
                     </div>
                 </div>
             </section>
 
-            {/* Leadership */}
-            <section className="py-20 bg-white border-t border-slate-100">
+            {/* Who We Work With */}
+            <section className="py-20 bg-white border-y border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">Leadership Team</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                        {team.map((member, i) => (
-                            <div key={i} className="group text-center">
-                                <div className="w-48 h-48 mx-auto bg-slate-200 rounded-full mb-6 overflow-hidden">
-                                    <Users className="w-full h-full p-12 text-slate-400" />
-                                </div>
-                                <h3 className="text-xl font-bold text-slate-800">{member.name}</h3>
-                                <div className="text-emerald-600 font-medium mb-3">{member.role}</div>
-                                <p className="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">{member.bio}</p>
+                    <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">Who We Work With</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div className="space-y-4">
+                            <div className="flex items-start gap-3">
+                                <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                                <span className="text-slate-700 text-lg">Founders and owner-led businesses</span>
                             </div>
-                        ))}
+                            <div className="flex items-start gap-3">
+                                <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                                <span className="text-slate-700 text-lg">Growing companies with US operations</span>
+                            </div>
+                        </div>
+                        <div className="space-y-4">
+                            <div className="flex items-start gap-3">
+                                <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                                <span className="text-slate-700 text-lg">Cross-border individuals and families</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                                <span className="text-slate-700 text-lg">Teams requiring ongoing compliance or advisory support</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Engagement Types */}
+            <section className="py-20 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-center mb-16 text-slate-900">Engagements</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div className="text-center p-8 bg-white rounded-xl shadow-sm border border-slate-100">
+                            <h3 className="text-xl font-bold mb-3 text-slate-900">One-time engagements</h3>
+                            <p className="text-slate-600">Project-based work with defined scope and deliverables</p>
+                        </div>
+                        <div className="text-center p-8 bg-white rounded-xl shadow-sm border border-slate-100">
+                            <h3 className="text-xl font-bold mb-3 text-slate-900">Ongoing advisory relationships</h3>
+                            <p className="text-slate-600">Continuous support and strategic guidance</p>
+                        </div>
+                        <div className="text-center p-8 bg-white rounded-xl shadow-sm border border-slate-100">
+                            <h3 className="text-xl font-bold mb-3 text-slate-900">Project-based and recurring work</h3>
+                            <p className="text-slate-600">Flexible arrangements matching your needs</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Scope */}
+            <section className="py-20 bg-white border-t border-slate-100">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl font-bold mb-6 text-slate-900">Our Scope</h2>
+                    <p className="text-xl text-slate-600 leading-relaxed">
+                        US regulatory and advisory work for domestic and international clients.
+                    </p>
+                    <p className="text-lg text-slate-500 mt-6">
+                        US-based professional services firm · Cross-border and domestic matters · Project-based and ongoing engagements
+                    </p>
                 </div>
             </section>
 

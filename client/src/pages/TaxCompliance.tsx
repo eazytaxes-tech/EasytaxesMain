@@ -98,12 +98,12 @@ export default function TaxCompliance() {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link href="/contact?service=Tax & Compliance&plan=Get Started#form">
+            <Link href="/contact?service=Tax%20%26%20Compliance&plan=Get Started#form">
               <Button size="lg" className="bg-white text-[#059669] hover:bg-blue-50 border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
                 Get Started
               </Button>
             </Link>
-            <Link href="/contact?service=Tax & Compliance&plan=Book a Call#form">
+            <Link href="/contact?service=Tax%20%26%20Compliance&plan=Book a Call#form">
               <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 px-8 h-14 rounded-xl text-lg">
                 Book a Call
               </Button>
@@ -155,7 +155,7 @@ export default function TaxCompliance() {
                 ))}
               </ul>
 
-              <Link href={`/contact?service=Tax & Compliance&plan=${opt.title}#form`}>
+              <Link href={`/contact?service=Tax%20%26%20Compliance&plan=${opt.title}#form`}>
                 <Button className={`w-full h-12 rounded-xl font-semibold text-base shadow-lg transition-all hover:-translate-y-1 ${opt.featured ? 'bg-brand-gradient hover:brightness-110' : 'bg-slate-900 hover:bg-slate-800'}`}>
                   {opt.cta}
                 </Button>
@@ -313,12 +313,12 @@ export default function TaxCompliance() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-8">Get started now</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/contact?service=Tax & Compliance&plan=Get Started#form">
+            <Link href="/contact?service=Tax%20%26%20Compliance&plan=Get Started#form">
               <Button size="lg" className="bg-white text-[#059669] hover:bg-blue-50 border-0 font-bold px-10 h-14 rounded-xl text-lg shadow-xl hover:-translate-y-1 transition-all">
                 Get Started
               </Button>
             </Link>
-            <Link href="/contact?service=Tax & Compliance&plan=Book a Call#form">
+            <Link href="/contact?service=Tax%20%26%20Compliance&plan=Book a Call#form">
               <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 px-10 h-14 rounded-xl text-lg backdrop-blur-sm">
                 Book a Call
               </Button>

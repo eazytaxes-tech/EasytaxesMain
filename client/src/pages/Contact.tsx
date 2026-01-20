@@ -25,7 +25,7 @@ export default function Contact() {
       email: "",
       subject: "",
       message: "",
-      serviceInterest: "General Inquiry"
+      serviceInterest: ""
     }
   });
 
@@ -37,7 +37,12 @@ export default function Contact() {
     if (service) {
       form.setValue('serviceInterest', service);
     }
-    if (plan) {
+    
+    if (plan === 'Book a Call') {
+      form.setValue('serviceInterest', 'Other');
+      form.setValue('subject', 'Interested in Book a Call');
+      form.setValue('message', `I would like to schedule a call to discuss ${service || 'your services'}.`);
+    } else if (plan) {
       form.setValue('subject', `Interested in ${plan}`);
       form.setValue('message', `I would like to know more about the ${plan} plan for ${service}.`);
     }
@@ -87,7 +92,7 @@ export default function Contact() {
       {/* Contact Cards */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,7 +103,7 @@ export default function Contact() {
                 <Mail className="w-7 h-7" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2 text-lg">Email</h3>
-              <p className="text-slate-600 text-sm">support@eazytaxes.com</p>
+              <p className="text-slate-600 text-sm">contact@eazytaxes.com</p>
             </motion.div>
 
             <motion.div 
@@ -111,7 +116,7 @@ export default function Contact() {
                 <Phone className="w-7 h-7" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2 text-lg">Phone</h3>
-              <p className="text-slate-600 text-sm">+1 (555) 123-4567</p>
+              <p className="text-slate-600 text-sm">+1 206-886-0475</p>
             </motion.div>
 
             <motion.div 
@@ -123,21 +128,8 @@ export default function Contact() {
               <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center text-primary mx-auto mb-4">
                 <MapPin className="w-7 h-7" />
               </div>
-              <h3 className="font-bold text-slate-900 mb-2 text-lg">Location</h3>
-              <p className="text-slate-600 text-sm">New York, NY</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow text-center"
-            >
-              <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center text-primary mx-auto mb-4">
-                <Clock className="w-7 h-7" />
-              </div>
-              <h3 className="font-bold text-slate-900 mb-2 text-lg">Hours</h3>
-              <p className="text-slate-600 text-sm">Mon-Fri: 9AM-6PM EST</p>
+              <h3 className="font-bold text-slate-900 mb-2 text-lg">Registered Address</h3>
+              <p className="text-slate-600 text-sm">8 The Green, STE A,<br />Dover, DE 19901</p>
             </motion.div>
           </div>
         </div>
@@ -205,10 +197,10 @@ export default function Contact() {
                             <SelectContent>
                               <SelectItem value="Tax & Compliance">Tax & Compliance</SelectItem>
                               <SelectItem value="Tax Resolution">Tax Resolution</SelectItem>
-                              <SelectItem value="Assurance & SOC 2">Assurance & SOC 2</SelectItem>
-                              <SelectItem value="CFO & Advisory">CFO & Advisory</SelectItem>
-                              <SelectItem value="Valuations">Valuations (409A)</SelectItem>
-                              <SelectItem value="US Formation">US Formation & Banking</SelectItem>
+                              <SelectItem value="Assurance">Assurance</SelectItem>
+                              <SelectItem value="CFO Advisory">CFO Advisory</SelectItem>
+                              <SelectItem value="Valuations">Valuations</SelectItem>
+                              <SelectItem value="US Formation">US Formation</SelectItem>
                               <SelectItem value="General Inquiry">General Inquiry</SelectItem>
                               <SelectItem value="Other">Other</SelectItem>
                             </SelectContent>
