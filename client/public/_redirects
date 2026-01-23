@@ -1,0 +1,5 @@
+# _redirects (Netlify redirects file - backup)
+# This is a backup. Primary configuration is in netlify.toml
+
+# SPA fallback for client-side routing
+/*    /index.html   200

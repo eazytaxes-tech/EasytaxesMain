@@ -4,6 +4,7 @@ import { Check, ArrowRight, Calculator, PieChart, FileText, Layers } from "lucid
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { TestimonialsSection } from "@/components/ui/testimonials-section";
 import {
     Accordion,
     AccordionContent,
@@ -14,20 +15,36 @@ import {
 export default function Valuations() {
     const pricingOptions = [
         {
-            title: "409A Valuation",
-            bestFor: "Issuing Equity Options",
-            featured: true,
+            title: "Seed Stage 409A",
+            bestFor: "Early Stage Companies",
+            price: "$1,500",
+            featured: false,
             features: [
                 "Audit-defensible report",
                 "Fast turnaround (5-7 days)",
                 "Cap table integration"
             ],
             cta: "Get 409A",
-            variant: "409a"
+            variant: "409a-seed"
+        },
+        {
+            title: "Series A+ 409A",
+            bestFor: "Growth Stage Companies",
+            price: "Starting at $3,500",
+            featured: true,
+            features: [
+                "Comprehensive valuation analysis",
+                "Multiple funding rounds support",
+                "Detailed comparable analysis"
+            ],
+            cta: "Get Valuation",
+            variant: "409a-series"
         },
         {
             title: "Business Valuation",
             bestFor: "M&A / Planning",
+            price: "Starting at $5,000",
+            featured: false,
             features: [
                 "Fair market value assessment",
                 "Comparable analysis",
@@ -35,17 +52,6 @@ export default function Valuations() {
             ],
             cta: "Get Valuation",
             variant: "business"
-        },
-        {
-            title: "Fairness Opinion",
-            bestFor: "Transactions",
-            features: [
-                "Independent assessment",
-                "Transaction fairness review",
-                "Board presentation"
-            ],
-            cta: "Get Opinion",
-            variant: "fairness"
         }
     ];
 
@@ -137,7 +143,7 @@ export default function Valuations() {
                             <p className="text-sm text-slate-500 mb-6 h-10">{opt.bestFor}</p>
 
                             <div className="text-3xl font-bold text-slate-900 mb-8">
-                                From <span className="text-slate-400 text-lg font-normal">TBD</span>
+                                {opt.price}
                             </div>
 
                             <ul className="space-y-4 mb-8 flex-grow">
@@ -222,6 +228,8 @@ export default function Valuations() {
                     </AccordionItem>
                 </Accordion>
             </section>
+
+            <TestimonialsSection />
 
             {/* 9. FINAL CTA */}
             <section className="py-24 bg-brand-gradient text-white text-center">

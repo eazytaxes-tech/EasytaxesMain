@@ -1,53 +1,71 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, FileText, Globe, Calculator, Briefcase, Building2, CheckCircle2, Quote, Award, Lock, Users } from "lucide-react";
+import { ArrowRight, ShieldCheck, FileText, Globe, Calculator, Briefcase, Building2, CheckCircle2, Award, Lock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ServiceCard } from "@/components/ui/service-card";
+import { HeroBackground } from "@/components/ui/hero-background";
+import { WorldMap } from "@/components/ui/world-map";
+import React from "react";
 
 export default function Home() {
+  const [currentTagline, setCurrentTagline] = React.useState(0);
+
+  const taglines = [
+    "Eazytaxes turned complexity into clarity. Their expertise is exceptional.",
+    "Responsive, thoughtful, and extremely reliable — highly recommend.",
+    "Professional, clear, and practical in every engagement."
+  ];
+
+  const testimonialAuthors = [
+    "CEO, Growth Startup",
+    "Finance Leader, Global Company",
+    "CFO, Technology Firm"
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTagline((prev) => (prev + 1) % taglines.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfdfd] text-[#0f172a] font-sans selection:bg-emerald-500/10">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="min-h-[65vh] md:min-h-screen flex items-center justify-center text-center pt-4 md:pt-0 bg-white relative overflow-hidden px-4">
-        
-        <div className="hero-wave-bg">
-          <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <path className="wave-line" d="M0,160 C320,300 420,0 720,160 C1020,320 1120,20 1440,160" stroke="rgba(63, 185, 203, 0.08)" strokeWidth="1" fill="none"></path>
-            <path className="wave-line" d="M0,170 C320,310 420,10 720,170 C1020,330 1120,30 1440,170" stroke="rgba(63, 185, 203, 0.08)" strokeWidth="1" fill="none"></path>
-            <path className="wave-line" d="M0,180 C320,320 420,20 720,180 C1020,340 1120,40 1440,180" stroke="rgba(63, 185, 203, 0.08)" strokeWidth="1" fill="none"></path>
-            <path className="wave-line" d="M0,190 C320,330 420,30 720,190 C1020,350 1120,50 1440,190" stroke="rgba(63, 185, 203, 0.08)" strokeWidth="1" fill="none"></path>
-            <path className="wave-line" d="M0,200 C320,340 420,40 720,200 C1020,360 1120,60 1440,200" stroke="rgba(63, 185, 203, 0.08)" strokeWidth="1" fill="none"></path>
-          </svg>
-        </div>
+      <section className="min-h-0 md:min-h-screen flex items-center justify-center text-center pt-32 md:pt-0 pb-12 md:pb-0 relative overflow-hidden px-4">
+
+
+        <HeroBackground />
 
         <div className="container relative z-10 max-w-7xl mx-auto">
-          <div className="hero-content-centered">
-            <div className="flex justify-center items-center flex-wrap gap-x-3 sm:gap-x-5 gap-y-2 text-xs sm:text-[0.85rem] font-bold text-slate-400 uppercase tracking-widest mb-6">
-              <span>IRS-certified professionals</span>
-              <span className="text-[#3FB9CB] font-black">·</span>
-              <span>5,000+ returns filed</span>
-              <span className="text-[#3FB9CB] font-black">·</span>
-              <span>US compliance expertise</span>
-            </div>
-            <h1 className="text-[2.5rem] leading-[1.1] sm:text-6xl md:text-7xl lg:text-[5rem] font-black tracking-tight text-slate-900 font-sans mb-6" style={{ fontWeight: 900, WebkitTextStroke: '0.5px currentColor' }}>
-              Clarity. Control. <span className="font-serif text-[#3FB9CB] not-italic tracking-wide">Accountability.</span>
+          <div className="hero-content-centered flex flex-col items-center mt-6 md:mt-16">
+            <h1 className="text-[3rem] leading-[1.1] sm:text-6xl md:text-7xl lg:text-[5rem] font-black tracking-tight text-slate-900 font-sans mb-6 sm:mb-8" style={{ fontWeight: 900, WebkitTextStroke: '0.5px currentColor' }}>
+              <span className="block sm:inline">Clarity. Control.</span>{' '}
+              <span className="block sm:inline font-serif text-[#3FB9CB] not-italic tracking-wide">Accountability.</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-[1.4rem] text-slate-500 max-w-[650px] mx-auto leading-relaxed mb-8 md:mb-12">
-              File U.S. taxes accurately. Maximize refunds. Zero stress.
-            </p>
-            <div className="flex flex-col items-center mt-8 md:mt-12">
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-6 justify-center w-full sm:w-auto">
-                <Link href="/start" className="btn btn-primary btn-xl btn-hero-main highlight-confidence w-full sm:w-auto">
-                  Start Here
-                </Link>
-              </div>
-              <p className="text-sm text-slate-400 font-medium">Takes only 2 minutes</p>
 
-              <div className="scroll-down-container mt-12 mb-0 flex md:flex">
+            {/* Animation placeholder - visible on mobile between heading and description */}
+            <div className="mt-2 mb-6 sm:hidden h-12 flex items-center justify-center">
+              {/* The HeroBackground animation will be visible here */}
+            </div>
+
+            {/* Intro block */}
+            <p className="text-base md:text-lg text-slate-900 max-w-3xl mx-auto font-normal mt-4 sm:mt-6 mb-10 sm:mb-14">
+              Eazytaxes Inc. is a US-based professional services firm offering tax, compliance, assurance, and advisory services to businesses and individuals.
+            </p>
+
+            <div className="flex flex-col items-center">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8 justify-center w-full sm:w-auto">
+                <a href="#start-here" className="btn btn-primary btn-xl btn-hero-main highlight-confidence w-full sm:w-auto">
+                  Get Started
+                </a>
+              </div>
+
+              <div className="scroll-down-container mt-6 mb-0 flex md:flex">
                 <div className="chevron"></div>
                 <div className="chevron"></div>
                 <div className="chevron"></div>
@@ -57,255 +75,397 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-xl text-slate-600 leading-relaxed">
-            Eazytaxes Inc. is a US-based professional services firm offering tax, compliance, assurance, and advisory services to businesses and individuals.
-          </p>
-        </div>
-      </section>
+      {/* Start Here Section - Premium Design */}
+      <section id="start-here" className="relative py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
 
-      {/* Services Section */}
-      <section className="py-24 bg-[#f8fafc] dark:bg-black/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-primary font-bold tracking-[0.2em] uppercase text-[0.85rem] mb-4">Choose the area you need support with</h2>
+        {/* Left Adidas Stripes */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 opacity-20">
+          <div className="w-32 h-2 bg-[#3FB9CB] transform -rotate-45 origin-left"></div>
+          <div className="w-40 h-2 bg-[#3FB9CB] transform -rotate-45 origin-left"></div>
+          <div className="w-48 h-2 bg-[#3FB9CB] transform -rotate-45 origin-left"></div>
+        </div>
+
+        {/* Right Adidas Stripes */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 opacity-20 items-end">
+          <div className="w-32 h-2 bg-[#3FB9CB] transform rotate-45 origin-right"></div>
+          <div className="w-40 h-2 bg-[#3FB9CB] transform rotate-45 origin-right"></div>
+          <div className="w-48 h-2 bg-[#3FB9CB] transform rotate-45 origin-right"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
+                Services
+              </h2>
+              <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto font-light">
+                Choose the service that fits your needs
+              </p>
+            </motion.div>
           </div>
 
-          <div className="services-grid">
+          {/* Services Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-10 max-w-4xl mx-auto px-2 sm:px-0">
             {[
               {
                 title: "Tax & Compliance",
-                description: "US tax filings and compliance matters for individuals and businesses.",
+                description: "US tax filing for individuals & businesses.",
                 icon: <FileText className="w-6 h-6" />,
                 href: "/tax-compliance",
-                isExternal: false,
-                featured: true
               },
               {
                 title: "Tax Resolution",
-                description: "IRS and state notices, audits, and enforcement-related matters.",
+                description: "IRS audit representation & notice response.",
                 icon: <ShieldCheck className="w-6 h-6" />,
                 href: "/tax-resolution",
-                isExternal: false
               },
               {
                 title: "Assurance & SOC 2",
-                description: "SOC 2 engagements and related assurance requirements.",
+                description: "Audits, reviews, and compliance reports.",
                 icon: <CheckCircle2 className="w-6 h-6" />,
                 href: "/assurance-soc2",
-                isExternal: false
               },
               {
                 title: "CFO & Advisory",
-                description: "Financial oversight and advisory support.",
+                description: "Strategic planning and financial leadership.",
                 icon: <Briefcase className="w-6 h-6" />,
                 href: "/cfo-advisory",
-                isExternal: false
               },
               {
-                title: "Valuations (409A)",
-                description: "Equity and compliance-related valuations.",
+                title: "Valuations",
+                description: "409A valuations for equity compensation.",
                 icon: <Calculator className="w-6 h-6" />,
                 href: "/valuations",
-                isExternal: false
               },
               {
-                title: "US Formation & Banking",
-                description: "US entity formation, EIN, and banking assistance.",
+                title: "Formation & Banking",
+                description: "Launch your US entity and bank accounts.",
                 icon: <Building2 className="w-6 h-6" />,
                 href: "/us-formation",
-                isExternal: false
               }
             ].map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <ServiceCard {...service} />
+                <Link href={service.href}>
+                  <div className="p-4 sm:p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-all group cursor-pointer h-full flex flex-col items-center justify-center text-center aspect-auto sm:aspect-square">
+                    <div className="text-[#3FB9CB] mb-3 sm:mb-4">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xs sm:text-base md:text-lg font-bold text-slate-900 mb-1 sm:mb-2 group-hover:text-[#3FB9CB] transition-colors leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-600 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-2">
+                      {service.description}
+                    </p>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
 
-          {/* Global CTA under services grid */}
-          <div className="text-center mt-16">
-            <p className="text-lg text-slate-600 mb-4">Not sure which service applies?</p>
-            <Link href="/start">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8">
-                Start Here
-              </Button>
-            </Link>
+          {/* Section 6 — Credentials / Positioning Strip */}
+          <div className="text-center mb-16">
+            <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400/80 font-medium">
+              US-based professional services firm <span className="mx-2 md:mx-4 opacity-30">·</span>
+              Cross-border and domestic matters <span className="mx-2 md:mx-4 opacity-30">·</span>
+              Project-based and ongoing engagements
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Credentials / Positioning Strip */}
-      <section className="py-8 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-sm text-slate-500">
-            US-based professional services firm · Cross-border and domestic matters · Project-based and ongoing engagements
-          </p>
-        </div>
-      </section>
-
-      {/* Who We Work With */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Who we work with</h2>
-          <ul className="space-y-4 text-lg text-slate-600">
-            <li className="flex items-start gap-3">
-              <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-              <span>Founders and owner-led businesses</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-              <span>Growing companies with US operations</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-              <span>Cross-border individuals and families</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-              <span>Teams requiring ongoing compliance or advisory support</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Engagements */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Engagements</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">One-time engagements</h3>
+          {/* Streamlined Help CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 sm:p-8 bg-white/50 backdrop-blur-sm rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-all">
+              <div className="flex items-center gap-5">
+                <div className="flex-shrink-0 w-12 h-12 bg-cyan-50 rounded-full flex items-center justify-center">
+                  <Users className="w-6 h-6 text-[#3FB9CB]" />
+                </div>
+                <div className="text-left">
+                  <h4 className="text-lg font-bold text-slate-900">Not sure where to start?</h4>
+                  <p className="text-slate-500 text-sm">Our expert team can direct you to the right service for your specific situation.</p>
+                </div>
+              </div>
+              <Link href="/contact">
+                <Button className="bg-[#3FB9CB] hover:bg-[#34a0b0] text-white font-bold px-8 py-5 rounded-full text-sm shadow-sm transition-all hover:scale-105 whitespace-nowrap">
+                  Get Guidance <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Ongoing advisory relationships</h3>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Project-based and recurring work</h3>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Jurisdiction / Scope Line */}
-      <section className="py-8 bg-white border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-sm text-slate-500">
-            US regulatory and advisory work for domestic and international clients.
-          </p>
-        </div>
-      </section>
-
-      {/* Benefits / Why Us */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div className="w-full lg:w-1/2">
-              <img
-                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=2072"
-                alt="Professional Workspace"
-                className="rounded-lg shadow-2xl w-full object-cover h-64 sm:h-96 lg:h-[600px]"
-              />
-            </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-8">
-                Uncompromising Professionalism in Every Engagement
+      {/* About Us Section */}
+      <section id="about-us" className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto w-full">
+          {/* Section Header */}
+          <div className="mb-12 md:mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-xs uppercase tracking-widest text-slate-400 mb-4">ABOUT US</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 md:mb-10 tracking-tight leading-tight max-w-3xl">
+                A long-term partner, built around trust, clarity, and meaningful involvement.
               </h2>
-              <div className="space-y-10">
-                <div className="flex gap-5">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <Lock className="w-6 h-6" />
+
+              <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+                <div>
+                  <div className="text-5xl md:text-6xl font-black text-slate-900 mb-2">50+</div>
+                  <p className="text-sm text-slate-500">
+                    professionals across tax, accounting, advisory, and client success.
+                  </p>
+                </div>
+                <div>
+                  <div className="mb-6 min-h-[80px] flex items-center">
+                    <div>
+                      <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-2 italic">
+                        "{taglines[currentTagline]}"
+                      </p>
+                      <p className="text-xs text-slate-500 font-medium">
+                        — {testimonialAuthors[currentTagline]}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Maximum Security</h4>
-                    <p className="text-slate-600">State-of-the-art document encryption and secure data handling for total peace of mind.</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex -space-x-2">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Executive" className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" />
+                      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces" alt="Finance Leader" className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" />
+                      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=faces" alt="CFO" className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover" />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setCurrentTagline((prev) => (prev - 1 + taglines.length) % taglines.length)}
+                        className="text-slate-400 hover:text-slate-600 transition-colors"
+                      >
+                        &lt;
+                      </button>
+                      <span className="text-xs text-slate-600">{currentTagline + 1}/3</span>
+                      <button
+                        onClick={() => setCurrentTagline((prev) => (prev + 1) % taglines.length)}
+                        className="text-slate-400 hover:text-slate-600 transition-colors"
+                      >
+                        &gt;
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-5">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <Globe className="w-6 h-6" />
-                  </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Who We Work With Section (Section 7 & 8) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-20 md:mb-32"
+          >
+            {/* Mobile: Show heading first */}
+            <div className="md:hidden mb-8">
+              <p className="text-xs uppercase tracking-widest text-[#3FB9CB] font-bold mb-4">WHO WE WORK WITH</p>
+              <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight leading-tight">
+                Tailored support for every growth stage.
+              </h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+              {/* Content - Shows second on mobile, first on desktop */}
+              <div className="order-2 md:order-1">
+                {/* Desktop: Show heading here */}
+                <div className="hidden md:block">
+                  <p className="text-xs uppercase tracking-widest text-[#3FB9CB] font-bold mb-4">WHO WE WORK WITH</p>
+                  <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight leading-tight">
+                    Tailored support for every growth stage.
+                  </h3>
+                </div>
+
+                <div className="space-y-8">
+                  {/* Section 7 - Client Types */}
                   <div>
-                    <h4 className="text-xl font-bold mb-2">Global Perspective</h4>
-                    <p className="text-slate-600">Specialized in cross-border tax issues and international corporate structures.</p>
+                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Clients</h4>
+                    <ul className="space-y-3">
+                      {[
+                        "Founders and owner-led businesses",
+                        "Growing companies with US operations",
+                        "Cross-border individuals and families",
+                        "Teams requiring ongoing compliance or advisory support"
+                      ].map((text, i) => (
+                        <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#3FB9CB]"></div>
+                          {text}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Section 8 - Engagement Types */}
+                  <div className="pt-4 border-t border-slate-100">
+                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Engagements</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {[
+                        "One-time engagements",
+                        "Ongoing advisory relationships",
+                        "Project-based and recurring work",
+                        "Retainer arrangements"
+                      ].map((text, i) => (
+                        <div key={i} className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100/50">
+                          <CheckCircle2 className="w-4 h-4 text-[#3FB9CB]" />
+                          <span className="text-xs md:text-sm text-slate-600 font-semibold">{text}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-5">
-                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <CheckCircle2 className="w-6 h-6" />
+              </div>
+
+              {/* Image - Shows first on mobile (after heading), second on desktop */}
+              <div className="relative order-1 md:order-2">
+                <div
+                  className="relative overflow-hidden shadow-2xl z-10"
+                  style={{
+                    borderRadius: '60% 40% 40% 60% / 60% 60% 40% 40%',
+                    aspectRatio: '1/1'
+                  }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                    alt="Professional team working"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Decorative blob */}
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#3FB9CB]/10 rounded-full blur-2xl -z-10"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Uncompromising Professionalism Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+              {/* Image */}
+              <div className="order-2 md:order-1 overflow-hidden rounded-xl md:rounded-2xl shadow-lg w-full" style={{ aspectRatio: '1/1', maxHeight: '350px' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+                  alt="Tax documents and calculator"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="order-1 md:order-2">
+                <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                  Uncompromising Professionalism in Every Engagement
+                </h3>
+
+                <div className="space-y-4 md:space-y-5">
+                  <div className="flex gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-cyan-50 flex items-center justify-center">
+                      <Lock className="w-5 h-5 md:w-6 md:h-6 text-[#3FB9CB]" />
+                    </div>
+                    <div>
+                      <h4 className="text-base md:text-lg font-bold text-slate-900 mb-1">Maximum Security</h4>
+                      <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        State-of-the-art document encryption and secure data handling for total peace of mind.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Clarity & Precision</h4>
-                    <p className="text-slate-600">Detailed reporting and transparent communication throughout the entire process.</p>
+
+                  <div className="flex gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-cyan-50 flex items-center justify-center">
+                      <Globe className="w-5 h-5 md:w-6 md:h-6 text-[#3FB9CB]" />
+                    </div>
+                    <div>
+                      <h4 className="text-base md:text-lg font-bold text-slate-900 mb-1">Global Perspective</h4>
+                      <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        Specialized in cross-border tax issues and international corporate structures.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-cyan-50 flex items-center justify-center">
+                      <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-[#3FB9CB]" />
+                    </div>
+                    <div>
+                      <h4 className="text-base md:text-lg font-bold text-slate-900 mb-1">Clarity & Precision</h4>
+                      <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        Detailed reporting and transparent communication throughout every engagement.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* World Map Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-16 md:mt-24"
+          >
+            <WorldMap />
+          </motion.div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-32 bg-slate-50 border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Quote className="w-12 h-12 text-primary/30 mx-auto mb-10" />
-          <h2 className="text-3xl font-bold mb-16">Trusted by Forward-Thinking Founders</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-            {[
-              {
-                text: "Eazytaxes has been instrumental in managing our US compliance while we focus on our global product launch. Their expertise is unmatched.",
-                role: "Tech CEO",
-                company: "Series B Startup",
-                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100&h=100"
-              },
-              {
-                text: "The strategic advisory services helped us navigate complex cross-border tax implications during our expansion. Highly recommended.",
-                role: "Founder",
-                company: "Fintech Scale-up",
-                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100&h=100"
-              },
-              {
-                text: "Reliable, precise, and proactive. They handled our multi-state nexus issues with ease. A true partner for growth.",
-                role: "CFO",
-                company: "E-commerce Brand",
-                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=100&h=100"
-              }
-            ].map((testimonial, i) => (
-              <div key={i} className="bg-white p-8 rounded-lg shadow-sm border border-slate-100 relative group hover:shadow-md transition-all">
-                <div className="text-primary mb-6">
-                  <Quote className="w-8 h-8 fill-current opacity-20" />
-                </div>
-                <p className="text-slate-600 mb-8 italic relative z-10">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4">
-                  <img src={testimonial.image} alt={testimonial.role} className="w-12 h-12 rounded-full object-cover border-2 border-slate-100" />
-                  <div>
-                    <div className="font-bold text-slate-900 text-sm">{testimonial.role}</div>
-                    <div className="text-slate-500 text-xs uppercase tracking-wider">{testimonial.company}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Final CTA */}
-      <section className="py-32 bg-[#0f172a] text-white text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px]"></div>
-        <div className="relative max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to proceed?</h2>
+      <section className="py-20 bg-slate-50 text-slate-900 text-center relative overflow-hidden border-t border-slate-200">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-100/30 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-[80px]"></div>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-4 z-10">
+          {/* Section 9 - Jurisdiction / Scope Line */}
+          <div className="mb-8">
+            <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400 font-bold">
+              US regulatory and advisory work for domestic and international clients.
+            </p>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+            Ready to <span className="text-[#3FB9CB]">scale your business?</span>
+          </h2>
+          <p className="text-xl text-slate-700 mb-10 max-w-2xl mx-auto font-light">
+            Join the forward-thinking founders who trust Eazytaxes with their compliance and financial strategy.
+          </p>
           <div className="flex justify-center">
             <Link href="/start">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-12 h-14 rounded-md text-lg">
-                Start Here
+              <Button size="lg" className="bg-[#3FB9CB] hover:bg-[#34a0b0] text-white font-bold px-12 h-16 rounded-full text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105">
+                Get Started <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
           </div>

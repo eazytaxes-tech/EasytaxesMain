@@ -4,6 +4,7 @@ import { Check, ArrowRight, Building2, CreditCard, FileCheck, Globe, Layers } fr
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { TestimonialsSection } from "@/components/ui/testimonials-section";
 import {
     Accordion,
     AccordionContent,
@@ -14,8 +15,10 @@ import {
 export default function UsFormation() {
     const pricingOptions = [
         {
-            title: "Delaware LLC",
+            title: "LLC Formation",
             bestFor: "Small Business / E-commerce",
+            price: "$499",
+            featured: false,
             features: [
                 "Certificate of Formation",
                 "Operating Agreement",
@@ -27,6 +30,7 @@ export default function UsFormation() {
         {
             title: "C-Corp Formation",
             bestFor: "VC-Backed Startups",
+            price: "$1,499",
             featured: true,
             features: [
                 "Incorporation Documents",
@@ -37,15 +41,17 @@ export default function UsFormation() {
             variant: "ccorp"
         },
         {
-            title: "Banking Setup",
-            bestFor: "US Bank Accounts",
+            title: "Full Setup Package",
+            bestFor: "Complete US Business Setup",
+            price: "$2,499",
+            featured: false,
             features: [
-                "Bank partner introduction",
-                "Compliance document prep",
-                "Account opening support"
+                "Entity formation (LLC or C-Corp)",
+                "EIN & compliance documents",
+                "US bank account setup assistance"
             ],
-            cta: "Get Banking",
-            variant: "banking"
+            cta: "Get Full Package",
+            variant: "fullpackage"
         }
     ];
 
@@ -137,7 +143,7 @@ export default function UsFormation() {
                             <p className="text-sm text-slate-500 mb-6 h-10">{opt.bestFor}</p>
 
                             <div className="text-3xl font-bold text-slate-900 mb-8">
-                                From <span className="text-slate-400 text-lg font-normal">TBD</span>
+                                {opt.price}
                             </div>
 
                             <ul className="space-y-4 mb-8 flex-grow">
@@ -222,6 +228,8 @@ export default function UsFormation() {
                     </AccordionItem>
                 </Accordion>
             </section>
+
+            <TestimonialsSection />
 
             {/* 9. FINAL CTA */}
             <section className="py-24 bg-brand-gradient text-white text-center">

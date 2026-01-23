@@ -1,9 +1,10 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, FileText, ClipboardCheck, ShieldCheck, BarChart3, FileCheck, Users, Clock, DollarSign } from "lucide-react";
+import { Check, ArrowRight, FileText, ClipboardCheck, ShieldCheck, BarChart3, FileCheck, Users, Clock, DollarSign, Quote } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { TestimonialsSection } from "@/components/ui/testimonials-section";
 import {
     Accordion,
     AccordionContent,
@@ -16,7 +17,7 @@ export default function AssuranceSoc2() {
         {
             title: "Compilation",
             bestFor: "Internal use, basic financial reporting needs",
-            price: "From $3,500",
+            price: "Starting at $1,500",
             whatItIs: "We present your financial information in the form of financial statements without providing any assurance on the accuracy.",
             features: [
                 "Financial statement preparation",
@@ -36,7 +37,7 @@ export default function AssuranceSoc2() {
         {
             title: "Review",
             bestFor: "Lenders, investors requiring moderate assurance",
-            price: "From $8,500",
+            price: "Starting at $3,500",
             whatItIs: "We perform analytical procedures and inquiries to provide limited assurance that no material modifications are needed to your financial statements.",
             featured: true,
             features: [
@@ -58,7 +59,7 @@ export default function AssuranceSoc2() {
         {
             title: "Audit",
             bestFor: "Highest level of assurance, regulatory requirements",
-            price: "From $15,000",
+            price: "Starting at $10,000",
             whatItIs: "We perform extensive testing and verification procedures to provide reasonable assurance that financial statements are free from material misstatement.",
             features: [
                 "Comprehensive audit procedures and testing",
@@ -93,8 +94,8 @@ export default function AssuranceSoc2() {
             <Navbar />
 
             {/* 1. HERO */}
-            <section className="bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6] py-24 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/5 pattern-grid-lg opacity-10"></div>
+            <section className="bg-white min-h-screen flex items-center justify-center text-slate-900 relative overflow-hidden">
+                <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/START%20HERE%20SECTION%20PHOTOS/ASSURANCE-SOC2-REVIEW.jpg')" }}></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -107,7 +108,7 @@ export default function AssuranceSoc2() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl md:text-2xl text-blue-50 max-w-3xl mx-auto mb-10 font-light"
+                        className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 font-light"
                     >
                         Independent audits, reviews, and compilations for businesses seeking credibility with lenders, investors, and stakeholders.
                     </motion.p>
@@ -119,16 +120,21 @@ export default function AssuranceSoc2() {
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
                         <a href="#pricing">
-                            <Button size="lg" className="bg-white text-[#1e3a8a] hover:bg-blue-50 border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
+                            <Button size="lg" className="bg-[#3FB9CB] text-white hover:bg-[#34a0b0] border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
                                 Get Started
                             </Button>
                         </a>
-                        <Link href="/contact?service=Assurance#form">
-                            <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 px-8 h-14 rounded-xl text-lg">
-                                Schedule a Consultation
+                        <a href="https://calendly.com/nikunj-eazytaxes/meeting-with-nikunj-eazytaxes" target="_blank" rel="noopener noreferrer">
+                            <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 h-14 rounded-xl text-lg">
+                                Book a call
                             </Button>
-                        </Link>
+                        </a>
                     </motion.div>
+                    <div className="scroll-down-container mt-12">
+                        <div className="chevron"></div>
+                        <div className="chevron"></div>
+                        <div className="chevron"></div>
+                    </div>
                 </div>
             </section>
 
@@ -137,15 +143,15 @@ export default function AssuranceSoc2() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div>
-                            <div className="text-5xl font-bold text-[#3b82f6] mb-2">200+</div>
+                            <div className="text-5xl font-bold text-primary mb-2">200+</div>
                             <div className="text-slate-600 font-medium">Audits & Reviews Completed</div>
                         </div>
                         <div>
-                            <div className="text-5xl font-bold text-[#3b82f6] mb-2">15 Years</div>
+                            <div className="text-5xl font-bold text-primary mb-2">15 Years</div>
                             <div className="text-slate-600 font-medium">Combined Team Experience</div>
                         </div>
                         <div>
-                            <div className="text-5xl font-bold text-[#3b82f6] mb-2">Zero</div>
+                            <div className="text-5xl font-bold text-primary mb-2">Zero</div>
                             <div className="text-slate-600 font-medium">Qualified Opinions Issued</div>
                         </div>
                     </div>
@@ -167,51 +173,55 @@ export default function AssuranceSoc2() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                             viewport={{ once: true }}
-                            className={`relative bg-white rounded-2xl p-8 border ${opt.featured ? 'border-[#3b82f6] ring-2 ring-[#3b82f6]/20 shadow-xl scale-105 z-10' : 'border-slate-100 shadow-md'} flex flex-col`}
+                            className={`relative rounded-[2.5rem] p-10 flex flex-col ${opt.featured
+                                ? 'bg-white text-slate-900 shadow-2xl border-2 border-slate-900 scale-105 z-10'
+                                : 'bg-white text-slate-900 border border-slate-200 shadow-sm'
+                                }`}
                         >
                             {opt.featured && (
-                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide">
-                                    Most Common
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-bold border-2 border-slate-900">
+                                    Most Purchased
                                 </div>
                             )}
-                            <h3 className="text-2xl font-bold text-slate-900 mb-2">{opt.title}</h3>
-                            <p className="text-sm text-slate-500 mb-4">{opt.bestFor}</p>
-
-                            <div className="text-3xl font-bold text-slate-900 mb-4">
-                                {opt.price}
+                            <div className="mb-2">
+                                <h3 className="text-xl font-bold mb-2 text-slate-900">{opt.title}</h3>
+                                <p className="text-sm h-10 text-slate-500">{opt.bestFor}</p>
                             </div>
 
-                            <div className="mb-6">
-                                <p className="text-sm font-semibold text-slate-700 mb-2">What it is:</p>
-                                <p className="text-sm text-slate-600">{opt.whatItIs}</p>
+                            <div className="mb-8">
+                                <div className="text-5xl font-bold text-slate-900">
+                                    {opt.price}
+                                </div>
                             </div>
 
-                            <div className="mb-6">
-                                <p className="text-sm font-semibold text-slate-700 mb-3">Includes:</p>
-                                <ul className="space-y-2">
+                            <Link href={`/contact?service=Assurance&plan=${opt.title}#form`} className="w-full">
+                                <Button className={`w-full h-14 rounded-full font-bold text-base transition-all duration-300 ${opt.featured
+                                    ? 'bg-brand-gradient hover:brightness-110 text-white shadow-[0_0_20px_rgba(63,185,203,0.3)] border-0'
+                                    : 'bg-black hover:bg-slate-800 text-white border-0'
+                                    }`}>
+                                    {opt.cta}
+                                </Button>
+                            </Link>
+
+                            <div className="h-px w-full my-8 bg-slate-100"></div>
+
+                            <div className="flex-grow">
+                                <p className="text-sm font-semibold mb-6 text-slate-900">
+                                    What you will get
+                                </p>
+                                <ul className="space-y-4">
                                     {opt.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
-                                            <Check className="w-4 h-4 text-[#3b82f6] flex-shrink-0 mt-0.5" />
-                                            {feature}
+                                        <li key={idx} className="flex items-start gap-3 text-sm">
+                                            <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100 text-slate-500">
+                                                <Check className="w-3 h-3" />
+                                            </div>
+                                            <span className="text-slate-600">
+                                                {feature}
+                                            </span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
-
-                            <div className="mb-8 flex-grow">
-                                <p className="text-sm font-semibold text-slate-700 mb-3">Who needs this:</p>
-                                <ul className="space-y-1 text-sm text-slate-600">
-                                    {opt.whoNeeds.map((need, idx) => (
-                                        <li key={idx}>• {need}</li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <Link href={`/contact?service=Assurance&plan=${opt.title}#form`}>
-                                <Button className={`w-full h-12 rounded-xl font-semibold text-base shadow-lg transition-all hover:-translate-y-1 ${opt.featured ? 'bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] hover:brightness-110' : 'bg-slate-900 hover:bg-slate-800'}`}>
-                                    {opt.cta}
-                                </Button>
-                            </Link>
                         </motion.div>
                     ))}
                 </div>
@@ -225,7 +235,7 @@ export default function AssuranceSoc2() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {deliverables.map((item, i) => (
                             <div key={i} className="text-center p-6">
-                                <div className="w-16 h-16 mx-auto bg-blue-50 rounded-2xl flex items-center justify-center text-[#3b82f6] mb-4">
+                                <div className="w-16 h-16 mx-auto bg-cyan-50 rounded-2xl flex items-center justify-center text-primary mb-4">
                                     {item.icon}
                                 </div>
                                 <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
@@ -251,7 +261,7 @@ export default function AssuranceSoc2() {
                             { title: "Report Delivery", desc: "You receive the final assurance report, formatted financial statements, and management letter (if applicable)." }
                         ].map((step, i) => (
                             <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6] flex items-center justify-center text-2xl font-bold shadow-lg text-white mb-6 border-4 border-white">
+                                <div className="w-16 h-16 rounded-full bg-brand-gradient flex items-center justify-center text-2xl font-bold shadow-lg text-white mb-6 border-4 border-white">
                                     {i + 1}
                                 </div>
                                 <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
@@ -270,7 +280,7 @@ export default function AssuranceSoc2() {
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse bg-white shadow-lg rounded-xl overflow-hidden">
                             <thead>
-                                <tr className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white">
+                                <tr className="bg-brand-gradient text-white">
                                     <th className="p-4 text-left font-bold">Feature</th>
                                     <th className="p-4 text-center font-bold">Compilation</th>
                                     <th className="p-4 text-center font-bold">Review</th>
@@ -310,23 +320,23 @@ export default function AssuranceSoc2() {
                             <h3 className="text-xl font-bold text-slate-900 mb-6">Common Scenarios:</h3>
                             <ul className="space-y-3 text-slate-700">
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Businesses seeking bank loans or lines of credit</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Companies with investor reporting obligations</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Organizations preparing for sale or acquisition</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Entities with debt covenants requiring financial statement audits</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Nonprofits with grant requirements or donor expectations</span>
                                 </li>
                             </ul>
@@ -335,23 +345,23 @@ export default function AssuranceSoc2() {
                             <h3 className="text-xl font-bold text-slate-900 mb-6">Industry Applications:</h3>
                             <ul className="space-y-3 text-slate-700">
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Private equity portfolio companies</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>SaaS and technology businesses</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Manufacturing and distribution companies</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Professional services firms</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-[#3b82f6] shrink-0 mt-1" />
+                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
                                     <span>Real estate holding companies</span>
                                 </li>
                             </ul>
@@ -367,7 +377,7 @@ export default function AssuranceSoc2() {
                     <AccordionItem value="item-1">
                         <AccordionTrigger>How do I know which service I need?</AccordionTrigger>
                         <AccordionContent>
-                            It depends on your stakeholders' requirements. Banks typically require reviews or audits. Early-stage companies often start with compilations. If you're unsure, <a href="#" className="text-[#3b82f6] hover:underline">schedule a consultation</a> and we'll help you determine the appropriate engagement level based on your specific situation.
+                            It depends on your stakeholders' requirements. Banks typically require reviews or audits. Early-stage companies often start with compilations. If you're unsure, <a href="#" className="text-primary hover:underline">schedule a consultation</a> and we'll help you determine the appropriate engagement level based on your specific situation.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
@@ -391,7 +401,7 @@ export default function AssuranceSoc2() {
                     <AccordionItem value="item-5">
                         <AccordionTrigger>Can you audit our internal controls (SOX compliance)?</AccordionTrigger>
                         <AccordionContent>
-                            While we don't perform SOX 404 attestations (public company requirement), we do evaluate internal controls as part of financial statement audits and can provide management letters with control recommendations. For SOC 2 compliance, see our <Link href="/risk-advisory" className="text-[#3b82f6] hover:underline">Risk Advisory services</Link>.
+                            While we don't perform SOX 404 attestations (public company requirement), we do evaluate internal controls as part of financial statement audits and can provide management letters with control recommendations. For SOC 2 compliance, see our <Link href="/risk-advisory" className="text-primary hover:underline">Risk Advisory services</Link>.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-6">
@@ -409,22 +419,68 @@ export default function AssuranceSoc2() {
                 </Accordion>
             </section>
 
+            {/* Testimonials */}
+            <section className="py-32 bg-slate-50 border-y border-slate-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <Quote className="w-12 h-12 text-primary/30 mx-auto mb-10" />
+                    <h2 className="text-3xl font-bold mb-16">Trusted by Forward-Thinking Founders</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                        {[
+                            {
+                                text: "Eazytaxes has been instrumental in managing our US compliance while we focus on our global product launch. Their expertise is unmatched.",
+                                role: "Tech CEO",
+                                company: "Series B Startup",
+                                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100&h=100"
+                            },
+                            {
+                                text: "The strategic advisory services helped us navigate complex cross-border tax implications during our expansion. Highly recommended.",
+                                role: "Founder",
+                                company: "Fintech Scale-up",
+                                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100&h=100"
+                            },
+                            {
+                                text: "Reliable, precise, and proactive. They handled our multi-state nexus issues with ease. A true partner for growth.",
+                                role: "CFO",
+                                company: "E-commerce Brand",
+                                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=100&h=100"
+                            }
+                        ].map((testimonial, i) => (
+                            <div key={i} className="bg-white p-8 rounded-lg shadow-sm border border-slate-100 relative group hover:shadow-md transition-all">
+                                <div className="text-primary mb-6">
+                                    <Quote className="w-8 h-8 fill-current opacity-20" />
+                                </div>
+                                <p className="text-slate-600 mb-8 italic relative z-10">"{testimonial.text}"</p>
+                                <div className="flex items-center gap-4">
+                                    <img src={testimonial.image} alt={testimonial.role} className="w-12 h-12 rounded-full object-cover border-2 border-slate-100" />
+                                    <div>
+                                        <div className="font-bold text-slate-900 text-sm">{testimonial.role}</div>
+                                        <div className="text-slate-500 text-xs uppercase tracking-wider">{testimonial.company}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <TestimonialsSection />
+
             {/* 9. FINAL CTA */}
-            <section className="py-24 bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6] text-white text-center">
+            <section className="py-24 bg-brand-gradient text-white text-center">
                 <div className="max-w-4xl mx-auto px-4">
                     <h2 className="text-4xl font-bold mb-4">Ready to Begin Your Assurance Engagement?</h2>
-                    <p className="text-blue-100 text-lg mb-8">Get the credibility and confidence your stakeholders expect.</p>
+                    <p className="text-cyan-50 text-lg mb-8">Get the credibility and confidence your stakeholders expect.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <a href="#pricing">
-                            <Button size="lg" className="bg-white text-[#1e3a8a] hover:bg-blue-50 border-0 font-bold px-10 h-14 rounded-xl text-lg shadow-xl hover:-translate-y-1 transition-all">
+                            <Button size="lg" className="bg-white text-primary hover:bg-cyan-50 border-0 font-bold px-10 h-14 rounded-xl text-lg shadow-xl hover:-translate-y-1 transition-all">
                                 Get Started
                             </Button>
                         </a>
-                        <Link href="/contact?service=Assurance#form">
+                        <a href="https://calendly.com/nikunj-eazytaxes/meeting-with-nikunj-eazytaxes" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 px-10 h-14 rounded-xl text-lg backdrop-blur-sm">
-                                Schedule Consultation
+                                Book a call
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>

@@ -68,90 +68,107 @@ export default function Contact() {
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="bg-white py-20 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
-          >
-            Contact Us
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-slate-600 max-w-2xl mx-auto"
-          >
-            Have questions? We're here to help. Reach out and we'll respond within 24 hours.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Contact Cards */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <motion.div 
+      {/* Contact Section */}
+      <section id="form" className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto w-full">
+          {/* Section Header */}
+          <div className="mb-12 md:mb-16">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow text-center"
+              transition={{ duration: 0.6 }}
             >
-              <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center text-primary mx-auto mb-4">
-                <Mail className="w-7 h-7" />
-              </div>
-              <h3 className="font-bold text-slate-900 mb-2 text-lg">Email</h3>
-              <p className="text-slate-600 text-sm">contact@eazytaxes.com</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow text-center"
-            >
-              <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center text-primary mx-auto mb-4">
-                <Phone className="w-7 h-7" />
-              </div>
-              <h3 className="font-bold text-slate-900 mb-2 text-lg">Phone</h3>
-              <p className="text-slate-600 text-sm">+1 206-886-0475</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow text-center"
-            >
-              <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center text-primary mx-auto mb-4">
-                <MapPin className="w-7 h-7" />
-              </div>
-              <h3 className="font-bold text-slate-900 mb-2 text-lg">Registered Address</h3>
-              <p className="text-slate-600 text-sm">8 The Green, STE A,<br />Dover, DE 19901</p>
+              <p className="text-xs uppercase tracking-widest text-slate-400 mb-4">CONTACT US</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 md:mb-10 tracking-tight leading-tight max-w-3xl">
+                Have questions? We're here to help.
+              </h2>
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      {/* Form Section */}
-      <section id="form" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-3">Send us a Message</h2>
-              <p className="text-slate-600">Fill out the form below and we'll get back to you shortly</p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Side - Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="space-y-8"
+            >
+              <div>
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-8">
+                  Reach out and we'll respond within 24 hours. Whether you need tax compliance, advisory services, or just have questions about our offerings.
+                </p>
+              </div>
 
-            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-md border border-slate-200">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-all group cursor-pointer"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary flex-shrink-0 shadow-sm">
+                      <Mail className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 mb-1 group-hover:text-[#3FB9CB] transition-colors">Email</h3>
+                      <a href="mailto:contact@eazytaxes.com" className="text-slate-600 hover:text-primary transition-colors text-sm">
+                        contact@eazytaxes.com
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-all group cursor-pointer"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary flex-shrink-0 shadow-sm">
+                      <Phone className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 mb-1 group-hover:text-[#3FB9CB] transition-colors">Phone</h3>
+                      <a href="tel:+12068860475" className="text-slate-600 hover:text-primary transition-colors text-sm">
+                        +1 206-886-0475
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-all group cursor-pointer"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary flex-shrink-0 shadow-sm">
+                      <MapPin className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 mb-1 group-hover:text-[#3FB9CB] transition-colors">Registered Address</h3>
+                      <p className="text-slate-600 text-sm">
+                        8 The Green, STE A,<br />
+                        Dover, DE 19901
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <div className="bg-slate-50 p-8 md:p-10 rounded-2xl">
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <FormField
                       control={form.control}
                       name="name"
@@ -159,7 +176,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-slate-700 font-semibold">Full Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="John Doe" className="h-12 rounded-lg border-slate-300 focus:border-primary" {...field} />
+                            <Input placeholder="John Doe" className="h-12 rounded-lg border-slate-300 focus:border-primary bg-white" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -173,15 +190,13 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-slate-700 font-semibold">Email Address *</FormLabel>
                           <FormControl>
-                            <Input placeholder="john@example.com" className="h-12 rounded-lg border-slate-300 focus:border-primary" {...field} />
+                            <Input placeholder="john@example.com" className="h-12 rounded-lg border-slate-300 focus:border-primary bg-white" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
                       name="serviceInterest"
@@ -190,7 +205,7 @@ export default function Contact() {
                           <FormLabel className="text-slate-700 font-semibold">Service Interest</FormLabel>
                           <Select onValueChange={field.onChange} value={field.value ?? undefined}>
                             <FormControl>
-                              <SelectTrigger className="h-12 rounded-lg border-slate-300">
+                              <SelectTrigger className="h-12 rounded-lg border-slate-300 bg-white">
                                 <SelectValue placeholder="Select a service" />
                               </SelectTrigger>
                             </FormControl>
@@ -217,49 +232,49 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-slate-700 font-semibold">Subject *</FormLabel>
                           <FormControl>
-                            <Input placeholder="How can we help?" className="h-12 rounded-lg border-slate-300 focus:border-primary" {...field} />
+                            <Input placeholder="How can we help?" className="h-12 rounded-lg border-slate-300 focus:border-primary bg-white" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                  </div>
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-slate-700 font-semibold">Message *</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Tell us about your situation and how we can help..." 
-                            className="min-h-[150px] rounded-lg resize-none border-slate-300 focus:border-primary" 
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-slate-700 font-semibold">Message *</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Tell us about your situation and how we can help..." 
+                              className="min-h-[150px] rounded-lg resize-none border-slate-300 focus:border-primary bg-white" 
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <Button 
-                    type="submit" 
-                    disabled={mutation.isPending}
-                    className="w-full h-14 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl text-base"
-                  >
-                    {mutation.isPending ? (
-                      <>
-                        <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending Message...
-                      </>
-                    ) : (
-                      "Send Message"
-                    )}
-                  </Button>
-                </form>
-              </Form>
-            </div>
-          </motion.div>
+                    <Button 
+                      type="submit" 
+                      disabled={mutation.isPending}
+                      className="w-full h-14 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl text-base"
+                    >
+                      {mutation.isPending ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending Message...
+                        </>
+                      ) : (
+                        "Send Message"
+                      )}
+                    </Button>
+                  </form>
+                </Form>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
       

@@ -4,6 +4,7 @@ import { Check, ArrowRight, TrendingUp, BarChart3, Briefcase, Globe, Layers } fr
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { TestimonialsSection } from "@/components/ui/testimonials-section";
 import {
     Accordion,
     AccordionContent,
@@ -17,6 +18,8 @@ export default function CfoAdvisory() {
             title: "Fractional CFO",
             bestFor: "Series A+ or Growth",
             featured: true,
+            price: "$3,000",
+            period: "/month",
             features: [
                 "Financial strategy & modeling",
                 "Board meeting prep",
@@ -28,6 +31,8 @@ export default function CfoAdvisory() {
         {
             title: "Controller Services",
             bestFor: "Seed / Early Stage",
+            price: "$500",
+            period: "/month",
             features: [
                 "Month-end close oversight",
                 "KPI dashboarding",
@@ -39,6 +44,8 @@ export default function CfoAdvisory() {
         {
             title: "Project Advisory",
             bestFor: "Specific Initiatives",
+            price: "$125",
+            period: "/hr",
             features: [
                 "M&A Due Diligence",
                 "System implementations",
@@ -137,7 +144,7 @@ export default function CfoAdvisory() {
                             <p className="text-sm text-slate-500 mb-6 h-10">{opt.bestFor}</p>
 
                             <div className="text-3xl font-bold text-slate-900 mb-8">
-                                From <span className="text-slate-400 text-lg font-normal">TBD</span>
+                                {opt.price}<span className="text-lg font-normal text-slate-500">{opt.period}</span>
                             </div>
 
                             <ul className="space-y-4 mb-8 flex-grow">
@@ -222,6 +229,8 @@ export default function CfoAdvisory() {
                     </AccordionItem>
                 </Accordion>
             </section>
+
+            <TestimonialsSection />
 
             {/* 9. FINAL CTA */}
             <section className="py-24 bg-brand-gradient text-white text-center">

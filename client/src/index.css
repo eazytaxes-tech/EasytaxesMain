@@ -109,6 +109,10 @@
         @apply border-border;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         @apply bg-background text-foreground;
         font-family: 'Montserrat', sans-serif;
@@ -290,8 +294,20 @@
     .chevron:before,
     .chevron:after {
         content: '';
-        @apply absolute top-0 h-full bg-[#3FB9CB];
+        @apply absolute top-0 h-full;
         width: 50%;
+    }
+
+    /* Default white for home page */
+    .scroll-down-container:not(.dark-arrows) .chevron:before,
+    .scroll-down-container:not(.dark-arrows) .chevron:after {
+        @apply bg-[#3FB9CB];
+    }
+
+    /* Light grey for service pages */
+    .scroll-down-container.dark-arrows .chevron:before,
+    .scroll-down-container.dark-arrows .chevron:after {
+        @apply bg-[#d1d5db];
     }
 
     .chevron:before {
