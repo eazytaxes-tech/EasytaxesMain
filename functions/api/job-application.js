@@ -1,6 +1,7 @@
 /**
  * Cloudflare Pages Function for handling job application submissions
  * This runs on Cloudflare's edge network and sends emails via MailChannels
+ * Updated: 2026-01-26
  */
 
 export async function onRequestPost(context) {
