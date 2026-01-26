@@ -168,13 +168,19 @@ export async function onRequestOptions() {
 }
 
 /**
- * Convert ArrayBuffer to Base64 string
+ * Convert ArrayBuffer to Base64 string (Cloudflare Workers compatible)
  */
 function arrayBufferToBase64(buffer) {
     const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
     let binary = '';
-    for (let i = 0; i < bytes.byteLength; i++) {
-        binary += String.fromCharCode(bytes[i]);
+
+    // Process in chunks to avoid call stack size exceeded
+    const chunkSize = 0x8000; // 32KB chunks
+    for (let i = 0; i < len; i += chunkSize) {
+        const chunk = bytes.subarray(i, Math.min(i + chunkSize, len));
+        binary += String.fromCharCode.apply(null, chunk);
     }
+
     return btoa(binary);
 }
