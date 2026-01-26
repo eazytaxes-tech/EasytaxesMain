@@ -53,9 +53,9 @@ export default function JobApplication() {
   const [, params] = useRoute("/careers/:jobTitle/apply");
   const jobSlug = params?.jobTitle || "";
   const jobTitle = jobSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  
+
   const questions = screeningQuestions[jobSlug] || [];
-  
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -70,7 +70,7 @@ export default function JobApplication() {
     screeningAnswers: questions.map(() => ""),
     additionalInfo: ""
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -103,18 +103,19 @@ export default function JobApplication() {
     formDataToSend.append("noticePeriod", formData.noticePeriod);
     formDataToSend.append("expectedSalary", formData.expectedSalary);
     formDataToSend.append("additionalInfo", formData.additionalInfo);
-    
+
     // Add screening questions and answers
     questions.forEach((question, index) => {
       formDataToSend.append(`question_${index + 1}`, question);
       formDataToSend.append(`answer_${index + 1}`, formData.screeningAnswers[index]);
     });
-    
+
     if (formData.resume) formDataToSend.append("resume", formData.resume);
     if (formData.coverLetter) formDataToSend.append("coverLetter", formData.coverLetter);
 
     try {
-      const response = await fetch("/api/job-application", {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/job-application`, {
         method: "POST",
         body: formDataToSend,
       });
