@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, FileText, ClipboardCheck, ShieldCheck, BarChart3, FileCheck, Users, Clock, DollarSign, Quote } from "lucide-react";
+import { Check, ArrowRight, FileText, ClipboardCheck, ShieldCheck, BarChart3, FileCheck, Users, Clock, DollarSign, Quote, CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -16,77 +16,65 @@ export default function AssuranceSoc2() {
     const pricingOptions = [
         {
             title: "Compilation",
-            bestFor: "Internal use, basic financial reporting needs",
-            price: "Starting at $1,500",
-            whatItIs: "We present your financial information in the form of financial statements without providing any assurance on the accuracy.",
+            bestFor: "Internal use, basic reporting",
+            price: "$1,500",
             features: [
                 "Financial statement preparation",
                 "Management representation letter",
-                "Compilation report (no assurance provided)",
-                "Basic financial statement formatting",
-                "References to accounting framework used"
-            ],
-            whoNeeds: [
-                "Early-stage companies",
-                "Businesses with basic reporting requirements",
-                "Organizations needing formatted financials without audit requirement"
+                "Compilation report",
+                "Basic formatting included",
+                "No assurance provided"
             ],
             cta: "Start Compilation",
             variant: "compilation"
         },
         {
             title: "Review",
-            bestFor: "Lenders, investors requiring moderate assurance",
-            price: "Starting at $3,500",
-            whatItIs: "We perform analytical procedures and inquiries to provide limited assurance that no material modifications are needed to your financial statements.",
+            bestFor: "Lenders & Investors",
+            price: "$3,500",
             featured: true,
             features: [
-                "Financial statement review procedures",
-                "Analytical procedures and inquiries",
-                "Review report with limited assurance",
-                "Management representation letter",
-                "Discussion of any required adjustments"
-            ],
-            whoNeeds: [
-                "Companies seeking bank financing",
-                "Private equity portfolio companies",
-                "Businesses with investor reporting requirements",
-                "Organizations transitioning from compilation to audit"
+                "Analytical procedures",
+                "Limited assurance report",
+                "Management inquiries",
+                "Material modification check",
+                "Bank-ready deliverables"
             ],
             cta: "Start Review",
             variant: "review"
         },
         {
-            title: "Audit",
-            bestFor: "Highest level of assurance, regulatory requirements",
-            price: "Starting at $10,000",
-            whatItIs: "We perform extensive testing and verification procedures to provide reasonable assurance that financial statements are free from material misstatement.",
+            title: "Audit / SOC 2",
+            bestFor: "Regulatory & Enterprise",
+            price: "$10,000",
             features: [
-                "Comprehensive audit procedures and testing",
-                "Internal control evaluation",
-                "Third-party confirmations",
-                "Substantive testing of account balances",
-                "Audit opinion on financial statements",
-                "Management letter with recommendations"
+                "Reasonable assurance",
+                "Internal control offering",
+                "Substantive testing",
+                "Third-party confirmation",
+                "Audit opinion letter"
             ],
-            whoNeeds: [
-                "Companies with debt covenants requiring audits",
-                "Businesses preparing for sale or acquisition",
-                "Organizations with regulatory audit requirements",
-                "Companies seeking significant outside investment"
-            ],
-            cta: "Request Audit Proposal",
+            cta: "Request Proposal",
             variant: "audit"
         }
     ];
 
     const deliverables = [
-        { icon: <FileText />, title: "Engagement Planning", desc: "Upfront scoping and timeline discussion to align expectations and deliverables" },
-        { icon: <ShieldCheck />, title: "Fieldwork Execution", desc: "Efficient testing procedures with minimal disruption to your daily operations" },
-        { icon: <Users />, title: "Direct Communication", desc: "Regular updates throughout the engagement with a dedicated engagement manager" },
-        { icon: <FileCheck />, title: "Draft Review", desc: "Collaborative review of draft financial statements before finalization" },
-        { icon: <Check />, title: "Final Deliverables", desc: "Formal report with opinion/conclusion and professionally formatted financial statements" },
-        { icon: <BarChart3 />, title: "Management Insights", desc: "Recommendations for improving controls, processes, or financial reporting (audit only)" }
+        { name: "Engagement Plan", desc: "Upfront scoping and timeline discussion" },
+        { name: "Fieldwork Exec", desc: "Efficient testing with minimal disruption" },
+        { name: "Status Updates", desc: "Regular communication via dedicated manager" },
+        { name: "Draft Review", desc: "Collaborative review before finalization" },
+        { name: "Final Report", desc: "Formal opinion and formatted statements" },
+        { name: "Mgmt Letter", desc: "Control recommendations (Audit only)" }
+    ];
+
+    const situations = [
+        { title: "Bank Financing", subtitle: "Secure a loan or line of credit with reviewed financials.", case: "financing" },
+        { title: "Investor Reporting", subtitle: "Meet quarterly or annual reporting obligations for VCs.", case: "investors" },
+        { title: "SOC 2 Type 1 & 2", subtitle: "Prove your security controls to close enterprise deals.", case: "soc2" },
+        { title: "M&A Diligence", subtitle: "Prepare your financials for sale or acquisition.", case: "ma" },
+        { title: "Grant Compliance", subtitle: "Non-profit single audits and grant expenditure reporting.", case: "grant" },
+        { title: "General Advisory", subtitle: "Not sure? Let's discuss your specific requirements.", link: "/start" }
     ];
 
     return (
@@ -94,75 +82,172 @@ export default function AssuranceSoc2() {
             <Navbar />
 
             {/* 1. HERO */}
-            <section className="bg-white min-h-screen flex items-center justify-center text-slate-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/START%20HERE%20SECTION%20PHOTOS/ASSURANCE-SOC2-REVIEW.jpg')" }}></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <section className="bg-[#3FB9CB] min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src="/START HERE SECTION PHOTOS/ASSURANCE-SOC2-REVIEW.jpg"
+                        onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            if (e.currentTarget.parentElement) {
+                                e.currentTarget.parentElement.style.backgroundColor = '#3FB9CB';
+                            }
+                        }}
+                        alt="Assurance & SOC 2"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[#3FB9CB]/80"></div>
+                </div>
+                <div className="w-full px-8 md:px-12 lg:px-16 relative z-10 text-left py-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full text-sm font-bold mb-6 border border-white/30"
+                    >
+                        ASSURANCE & SOC 2
+                    </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-6xl font-bold mb-6 tracking-tight max-w-3xl"
                     >
-                        Financial Statement Assurance You Can Trust
+                        Financial Assurance You Can Trust
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 font-light"
+                        transition={{ delay: 0.2 }}
+                        className="text-xl md:text-2xl max-w-2xl mb-10 font-light"
                     >
-                        Independent audits, reviews, and compilations for businesses seeking credibility with lenders, investors, and stakeholders.
+                        Independent audits, reviews, and SOC 2 reports for businesses seeking credibility with stakeholders.
                     </motion.p>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                        transition={{ delay: 0.3 }}
+                        className="flex flex-col sm:flex-row gap-4 items-start mb-8"
                     >
                         <a href="#pricing">
-                            <Button size="lg" className="bg-[#3FB9CB] text-white hover:bg-[#34a0b0] border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
-                                Get Started
+                            <Button size="lg" className="bg-slate-900 text-white hover:bg-slate-800 border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
+                                Get Started Today
                             </Button>
                         </a>
                         <a href="https://calendly.com/nikunj-eazytaxes/meeting-with-nikunj-eazytaxes" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 h-14 rounded-xl text-lg">
-                                Book a call
+                            <Button size="lg" variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-8 h-14 rounded-xl text-lg">
+                                Book a Free Call
                             </Button>
                         </a>
                     </motion.div>
-                    <div className="scroll-down-container mt-12">
-                        <div className="chevron"></div>
-                        <div className="chevron"></div>
-                        <div className="chevron"></div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                        className="mt-6"
+                    >
+                        <Link href="/start" className="text-sm text-white/90 hover:text-white underline underline-offset-4">
+                            Not sure which report you need? Start Here.
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* 2. HOW CAN WE HELP YOU TODAY */}
+            <section className="py-24 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">How can we help you today?</h2>
+                <p className="text-center text-slate-600 mb-12">Select the scenario that best describes your compliance needs.</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {situations.map((sit, i) => (
+                        <Link key={i} href={sit.link || `/contact?service=Assurance&plan=${encodeURIComponent(sit.title)}#form`}>
+                            <div className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer h-full flex flex-col justify-center items-center text-center">
+                                <div>
+                                    <h3 className="font-bold text-slate-800 text-lg mb-2">{sit.title}</h3>
+                                    {sit.subtitle && <p className="text-sm text-slate-600 mb-4">{sit.subtitle}</p>}
+                                    <div className="h-1 w-12 bg-slate-100 group-hover:bg-primary transition-colors rounded-full mx-auto"></div>
+                                </div>
+                                <div className="flex items-center text-primary font-medium text-sm group-hover:translate-x-2 transition-transform mt-4">
+                                    Start Now <ArrowRight className="ml-2 w-4 h-4" />
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </section>
+
+            {/* 3. FULL SPECTRUM COVERAGE */}
+            <section className="py-20 bg-slate-50">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-slate-900 mb-4">Minimize Disruption. Maximize Trust.</h2>
+                        <p className="text-slate-600 text-lg">We handle the heavy lifting so you can focus on operations.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {[
+                            { title: "Tailored Engagements", desc: "We scope our work specifically to your stakeholders' requirements to avoid over-auditing." },
+                            { title: "Tech-Forward Approach", desc: "We utilize secure portals and modern tools to streamline document collection." },
+                            { title: "Experienced Team", desc: "Our team brings Big 4 experience to growing private companies." },
+                            { title: "Proactive Communication", desc: "No surprises. We communicate findings as they arise, not just at the deadline." },
+                            { title: "Regulatory Expertise", desc: "Deep knowledge of GAAP, GAAS, SSARS, and AICPA standards." },
+                            { title: "Control Recommendations", desc: "We don't just find errors; we help you improve your internal processes." }
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                    <CheckCircle2 className="w-6 h-6 text-green-600" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
+                                    <p className="text-slate-600">{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* 2. TRUST BAR */}
+            {/* 4. THE EAZYTAXES ADVANTAGE */}
+            <section className="py-20 bg-white border-y border-slate-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">What to expect</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {deliverables.map((item, i) => (
+                            <div key={i} className="text-center">
+                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3FB9CB] to-[#34a0b0] flex items-center justify-center shadow-lg">
+                                    <Check className="w-8 h-8 text-white" />
+                                </div>
+                                <h3 className="font-bold text-slate-900 text-lg mb-2">{item.name}</h3>
+                                <p className="text-sm text-slate-600">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 5. TRUST BAR */}
             <section className="py-16 bg-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div>
                             <div className="text-5xl font-bold text-primary mb-2">200+</div>
-                            <div className="text-slate-600 font-medium">Audits & Reviews Completed</div>
+                            <div className="text-slate-600 font-medium">Engagements Completed</div>
                         </div>
                         <div>
                             <div className="text-5xl font-bold text-primary mb-2">15 Years</div>
-                            <div className="text-slate-600 font-medium">Combined Team Experience</div>
+                            <div className="text-slate-600 font-medium">Combined Experience</div>
                         </div>
                         <div>
                             <div className="text-5xl font-bold text-primary mb-2">Zero</div>
-                            <div className="text-slate-600 font-medium">Qualified Opinions Issued</div>
+                            <div className="text-slate-600 font-medium">Qualified Opinions</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 3. PRICING */}
+            {/* 6. PRICING OPTIONS */}
             <section id="pricing" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-slate-900">Assurance Engagement Options</h2>
-                    <p className="text-slate-600 mt-2">Choose the level of assurance appropriate for your stakeholders' requirements</p>
+                    <h2 className="text-3xl font-bold text-slate-900">Assurance Packages</h2>
+                    <p className="text-slate-600 mt-2">Transparent options for every level of assurance.</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -180,7 +265,7 @@ export default function AssuranceSoc2() {
                         >
                             {opt.featured && (
                                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-bold border-2 border-slate-900">
-                                    Most Purchased
+                                    Most Popular
                                 </div>
                             )}
                             <div className="mb-2">
@@ -189,16 +274,14 @@ export default function AssuranceSoc2() {
                             </div>
 
                             <div className="mb-8">
-                                <div className="text-5xl font-bold text-slate-900">
+                                <div className="text-4xl font-bold text-slate-900">
                                     {opt.price}
                                 </div>
+                                {opt.title.includes("Starting") && <div className="text-xs text-slate-500 mt-1">Base price</div>}
                             </div>
 
                             <Link href={`/contact?service=Assurance&plan=${opt.title}#form`} className="w-full">
-                                <Button className={`w-full h-14 rounded-full font-bold text-base transition-all duration-300 ${opt.featured
-                                    ? 'bg-brand-gradient hover:brightness-110 text-white shadow-[0_0_20px_rgba(63,185,203,0.3)] border-0'
-                                    : 'bg-black hover:bg-slate-800 text-white border-0'
-                                    }`}>
+                                <Button className="w-full h-14 rounded-xl font-bold text-base transition-all duration-300 bg-slate-900 hover:bg-slate-800 text-white border-0">
                                     {opt.cta}
                                 </Button>
                             </Link>
@@ -227,56 +310,57 @@ export default function AssuranceSoc2() {
                 </div>
             </section>
 
-            {/* 4. WHAT'S INCLUDED */}
-            <section className="py-20 bg-white border-y border-slate-100">
+            {/* 7. PROOF / TRUST */}
+            <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">What to Expect from Our Assurance Engagements</h2>
-                    <p className="text-center text-slate-600 mb-12">Professional, efficient engagements designed to minimize disruption to your business</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {deliverables.map((item, i) => (
+                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-16">Why clients trust us</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            { icon: <ShieldCheck />, text: "Rigorous standards compliant with AICPA guidelines" },
+                            { icon: <Clock />, text: "Efficient timelines that respect your team's bandwidth" },
+                            { icon: <Users />, text: "Dedicated engagement managers for every client" },
+                            { icon: <BarChart3 />, text: "Actionable insights beyond just the compliance box" }
+                        ].map((item, i) => (
                             <div key={i} className="text-center p-6">
-                                <div className="w-16 h-16 mx-auto bg-cyan-50 rounded-2xl flex items-center justify-center text-primary mb-4">
+                                <div className="w-16 h-16 mx-auto bg-slate-50 rounded-2xl flex items-center justify-center text-primary mb-6">
                                     {item.icon}
                                 </div>
-                                <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
-                                <p className="text-slate-600 text-sm">{item.desc}</p>
+                                <p className="text-slate-700 font-medium leading-relaxed">{item.text}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 5. PROCESS */}
-            <section className="py-20 bg-slate-50">
+            {/* 8. HOW IT WORKS */}
+            <section className="py-20 bg-slate-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">How Our Assurance Process Works</h2>
-                    <p className="text-center text-slate-600 mb-16">Transparent, collaborative approach from start to finish</p>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                        <div className="hidden md:block absolute top-8 left-[12%] right-[12%] h-0.5 bg-slate-300 z-0"></div>
+                    <h2 className="text-3xl font-bold text-center mb-16">How it works</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                        {/* Connector Line (Desktop) */}
+                        <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-slate-700 z-0"></div>
 
                         {[
-                            { title: "Engagement Planning", desc: "We discuss scope, timing, materiality levels, and information needs. You receive a detailed engagement letter outlining deliverables." },
-                            { title: "Information Request", desc: "We provide a comprehensive PBC (Provided by Client) list. You gather supporting documentation and financial records." },
-                            { title: "Fieldwork & Testing", desc: "We perform procedures appropriate to the engagement type (compilation/review/audit) and communicate any questions or findings in real-time." },
-                            { title: "Report Delivery", desc: "You receive the final assurance report, formatted financial statements, and management letter (if applicable)." }
+                            "Planning & Scoping",
+                            "Fieldwork & Testing",
+                            "Reporting & Delivery"
                         ].map((step, i) => (
                             <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                                <div className="w-16 h-16 rounded-full bg-brand-gradient flex items-center justify-center text-2xl font-bold shadow-lg text-white mb-6 border-4 border-white">
+                                <div className="w-16 h-16 rounded-full bg-brand-gradient flex items-center justify-center text-2xl font-bold shadow-lg shadow-blue-500/20 mb-6 border-4 border-slate-800">
                                     {i + 1}
                                 </div>
-                                <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
-                                <p className="text-sm text-slate-600">{step.desc}</p>
+                                <p className="text-lg font-medium text-slate-200 max-w-xs">{step}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 6. COMPARISON TABLE */}
+            {/* 9. COMPARISON TABLE */}
             <section className="py-20 bg-white">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">Compilation vs. Review vs. Audit</h2>
-                    <p className="text-center text-slate-600 mb-12">Understanding the differences in scope and assurance level</p>
+                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">Compare Engagement Levels</h2>
+                    <p className="text-center text-slate-600 mb-12">Understanding the difference in scope and assurance</p>
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse bg-white shadow-lg rounded-xl overflow-hidden">
                             <thead>
@@ -290,13 +374,12 @@ export default function AssuranceSoc2() {
                             <tbody>
                                 {[
                                     ["Assurance Level", "None", "Limited", "Reasonable"],
-                                    ["Testing Procedures", "None", "Analytical + Inquiries", "Extensive Testing"],
-                                    ["Internal Control Review", "No", "No", "Yes"],
-                                    ["Third-Party Confirmations", "No", "No", "Yes"],
-                                    ["Management Letter", "No", "Optional", "Yes"],
-                                    ["Typical Timeline", "2-3 weeks", "3-5 weeks", "6-10 weeks"],
-                                    ["Starting Price", "$3,500", "$8,500", "$15,000"],
-                                    ["Common Use Cases", "Basic reporting", "Lender requirements", "Regulatory/Investor requirements"]
+                                    ["Testing Depth", "None", "Analytical", "Extensive"],
+                                    ["Internal Controls", "No", "No", "Evaluated"],
+                                    ["3rd Party Confirmations", "No", "No", "Yes"],
+                                    ["Turnaround", "2-3 Weeks", "3-5 Weeks", "6-10 Weeks"],
+                                    ["Starting Price", "$1,500", "$3,500", "$10,000"],
+                                    ["Bank Accepted", "Rarely", "Usually", "Always"]
                                 ].map((row, i) => (
                                     <tr key={i} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
                                         <td className="p-4 font-semibold text-slate-700 border-t border-slate-200">{row[0]}</td>
@@ -311,176 +394,65 @@ export default function AssuranceSoc2() {
                 </div>
             </section>
 
-            {/* 7. WHO NEEDS ASSURANCE */}
-            <section className="py-20 bg-slate-50">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Who Needs Assurance Services?</h2>
-                    <div className="grid md:grid-cols-2 gap-12">
-                        <div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-6">Common Scenarios:</h3>
-                            <ul className="space-y-3 text-slate-700">
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Businesses seeking bank loans or lines of credit</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Companies with investor reporting obligations</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Organizations preparing for sale or acquisition</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Entities with debt covenants requiring financial statement audits</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Nonprofits with grant requirements or donor expectations</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-6">Industry Applications:</h3>
-                            <ul className="space-y-3 text-slate-700">
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Private equity portfolio companies</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>SaaS and technology businesses</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Manufacturing and distribution companies</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Professional services firms</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-primary shrink-0 mt-1" />
-                                    <span>Real estate holding companies</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 8. FAQ */}
+            {/* 10. FAQ */}
             <section className="py-24 max-w-3xl mx-auto px-4">
-                <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Frequently Asked Questions</h2>
+                <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">FAQ</h2>
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>How do I know which service I need?</AccordionTrigger>
+                        <AccordionTrigger>How do I know if I need an audit or a review?</AccordionTrigger>
                         <AccordionContent>
-                            It depends on your stakeholders' requirements. Banks typically require reviews or audits. Early-stage companies often start with compilations. If you're unsure, <a href="#" className="text-primary hover:underline">schedule a consultation</a> and we'll help you determine the appropriate engagement level based on your specific situation.
+                            It usually depends on who is asking for it. Banks frequently accept reviews for loans under a certain size. VCs and larger lenders often require audits. We can review your loan covenants or term sheets to help you decide.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger>How long does an assurance engagement take?</AccordionTrigger>
+                        <AccordionTrigger>What is a compilation?</AccordionTrigger>
                         <AccordionContent>
-                            Compilations typically take 2-3 weeks, reviews 3-5 weeks, and audits 6-10 weeks from information request to final report delivery. Timeline depends on your responsiveness to information requests and complexity of your financials.
+                            A compilation is the most basic service where we assist in presenting financial information in the form of financial statements without providing any assurance. It is often used for internal management use.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger>What financial statements are included?</AccordionTrigger>
+                        <AccordionTrigger>Do you handle SOC 2?</AccordionTrigger>
                         <AccordionContent>
-                            Standard engagements include Balance Sheet, Income Statement, Statement of Cash Flows, and footnote disclosures. We prepare statements in accordance with US GAAP or other applicable accounting frameworks.
+                            Yes. We can assist with SOC 2 readiness and partner with CPA firms that issue the final SOC 2 Type 1 and Type 2 reports.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger>Do you handle nonprofit audits or single audits?</AccordionTrigger>
+                        <AccordionTrigger>How long does the process take?</AccordionTrigger>
                         <AccordionContent>
-                            Yes. We perform audits for nonprofit organizations, including single audits (Uniform Guidance) for entities with federal grant expenditures over $750,000. Pricing varies based on grant complexity.
+                            Compilations can take 1-2 weeks. Reviews typically take 3-4 weeks. Audits generally take 6-8 weeks depending on the complexity and readiness of your records.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-5">
-                        <AccordionTrigger>Can you audit our internal controls (SOX compliance)?</AccordionTrigger>
+                        <AccordionTrigger>What do I need to prepare?</AccordionTrigger>
                         <AccordionContent>
-                            While we don't perform SOX 404 attestations (public company requirement), we do evaluate internal controls as part of financial statement audits and can provide management letters with control recommendations. For SOC 2 compliance, see our <Link href="/risk-advisory" className="text-primary hover:underline">Risk Advisory services</Link>.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-6">
-                        <AccordionTrigger>What if we have complex accounting issues?</AccordionTrigger>
-                        <AccordionContent>
-                            We handle revenue recognition (ASC 606), lease accounting (ASC 842), stock-based compensation, and other technical areas. Complex situations may require additional scoping, which we discuss during engagement planning.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-7">
-                        <AccordionTrigger>Do you work with our existing accounting team?</AccordionTrigger>
-                        <AccordionContent>
-                            Yes. We collaborate directly with your CFO, controller, or accounting staff throughout the engagement. We aim to be an extension of your team, not a disruption.
+                            We will provide a "Provided by Client" (PBC) list specific to your industry. Generally, you'll need your trial balance, bank statements, legal documents, and access to your accounting system.
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
             </section>
 
-            {/* Testimonials */}
-            <section className="py-32 bg-slate-50 border-y border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <Quote className="w-12 h-12 text-primary/30 mx-auto mb-10" />
-                    <h2 className="text-3xl font-bold mb-16">Trusted by Forward-Thinking Founders</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-                        {[
-                            {
-                                text: "Eazytaxes has been instrumental in managing our US compliance while we focus on our global product launch. Their expertise is unmatched.",
-                                role: "Tech CEO",
-                                company: "Series B Startup",
-                                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100&h=100"
-                            },
-                            {
-                                text: "The strategic advisory services helped us navigate complex cross-border tax implications during our expansion. Highly recommended.",
-                                role: "Founder",
-                                company: "Fintech Scale-up",
-                                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100&h=100"
-                            },
-                            {
-                                text: "Reliable, precise, and proactive. They handled our multi-state nexus issues with ease. A true partner for growth.",
-                                role: "CFO",
-                                company: "E-commerce Brand",
-                                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=100&h=100"
-                            }
-                        ].map((testimonial, i) => (
-                            <div key={i} className="bg-white p-8 rounded-lg shadow-sm border border-slate-100 relative group hover:shadow-md transition-all">
-                                <div className="text-primary mb-6">
-                                    <Quote className="w-8 h-8 fill-current opacity-20" />
-                                </div>
-                                <p className="text-slate-600 mb-8 italic relative z-10">"{testimonial.text}"</p>
-                                <div className="flex items-center gap-4">
-                                    <img src={testimonial.image} alt={testimonial.role} className="w-12 h-12 rounded-full object-cover border-2 border-slate-100" />
-                                    <div>
-                                        <div className="font-bold text-slate-900 text-sm">{testimonial.role}</div>
-                                        <div className="text-slate-500 text-xs uppercase tracking-wider">{testimonial.company}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             <TestimonialsSection />
 
-            {/* 9. FINAL CTA */}
+            {/* 12. FINAL CTA */}
             <section className="py-24 bg-brand-gradient text-white text-center">
                 <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold mb-4">Ready to Begin Your Assurance Engagement?</h2>
-                    <p className="text-cyan-50 text-lg mb-8">Get the credibility and confidence your stakeholders expect.</p>
+                    <h2 className="text-4xl font-bold mb-8">Get the assurance you need</h2>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="#pricing">
-                            <Button size="lg" className="bg-white text-primary hover:bg-cyan-50 border-0 font-bold px-10 h-14 rounded-xl text-lg shadow-xl hover:-translate-y-1 transition-all">
+                        <Link href="/contact?service=Assurance&plan=Get Started#form">
+                            <Button size="lg" className="bg-white text-primary hover:bg-blue-50 border-0 font-bold px-10 h-14 rounded-xl text-lg shadow-xl hover:-translate-y-1 transition-all">
                                 Get Started
                             </Button>
-                        </a>
+                        </Link>
                         <a href="https://calendly.com/nikunj-eazytaxes/meeting-with-nikunj-eazytaxes" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 px-10 h-14 rounded-xl text-lg backdrop-blur-sm">
-                                Book a call
+                                Book a Call
                             </Button>
                         </a>
+                    </div>
+                    <div className="mt-8">
+                        <Link href="/start" className="text-blue-100 hover:text-white underline underline-offset-4 font-medium">
+                            Not sure? Start Here
+                        </Link>
                     </div>
                 </div>
             </section>

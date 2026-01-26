@@ -61,21 +61,21 @@ export default function TaxCompliance() {
   ];
 
   const deliverables = [
-    "Prepared and filed returns (as applicable)",
-    "Compliance requirement confirmation",
-    "Secure client onboarding checklist",
-    "Request list for missing items",
-    "Final deliverables shared securely",
-    "Support for follow-up questions"
+    { name: "Complete Filing Package", desc: "Prepared and filed returns (as applicable)" },
+    { name: "Compliance Clarity", desc: "Compliance requirement confirmation" },
+    { name: "Secure Onboarding", desc: "Secure client onboarding checklist" },
+    { name: "Clear Communication", desc: "Request list for missing items" },
+    { name: "Protected Delivery", desc: "Final deliverables shared securely" },
+    { name: "Ongoing Support", desc: "Support for follow-up questions" }
   ];
 
   const situations = [
-    { title: "Behind on filings (catch-up)", case: "catchup" },
-    { title: "Foreign income or overseas assets", case: "foreign" },
-    { title: "Multiple states involved", case: "multistate" },
-    { title: "Self-employed / contractor income", case: "selfemployed" },
-    { title: "New entity filing", case: "newentity" },
-    { title: "Not sure (Start Here)", link: "/start" }
+    { title: "Catch-Up & Recovery", subtitle: "Resolve past-due returns and mitigate penalties with a clear plan.", case: "catchup" },
+    { title: "International Tax Compliance", subtitle: "Navigate FBAR, FATCA, and global asset reporting without the stress.", case: "foreign" },
+    { title: "Multi-State Nexus Solutions", subtitle: "Simplify complex filings across state lines and ensure total compliance.", case: "multistate" },
+    { title: "Founder & Contractor Strategy", subtitle: "Maximize deductions and optimize your personal-to-business tax flow.", case: "selfemployed" },
+    { title: "Business Entity Formation", subtitle: "Set your new venture up for success with the right tax structure from Day 1.", case: "newentity" },
+    { title: "General Advisory", subtitle: "Not seeing your situation? Let's discuss your unique requirements.", link: "/start" }
   ];
 
   return (
@@ -83,62 +83,142 @@ export default function TaxCompliance() {
       <Navbar />
 
       {/* 1. HERO */}
-      <section className="bg-white min-h-screen flex items-center justify-center text-slate-900 relative overflow-hidden">
+      <section className="bg-[#3FB9CB] min-h-screen flex items-center justify-center text-white relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/START HERE SECTION PHOTOS/TAX-COMPILENCE.jpg"
+            src="/START HERE SECTION PHOTOS/tax-compliance.jpg"
             alt="Tax Compliance"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-[#3FB9CB]/70"></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="w-full px-8 md:px-12 lg:px-16 relative z-10 text-left py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full text-sm font-bold mb-6 border border-white/30"
+          >
+            TAX & COMPLIANCE
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-bold mb-6 tracking-tight max-w-3xl"
           >
-            US Tax & Compliance
+            Simplified US Tax & Compliance
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 font-light"
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl max-w-2xl mb-10 font-light"
           >
-            Buy, onboard, and get started immediately for US tax filings and compliance matters.
+            Buy, onboard, and ppimofe with effortless US tax filings and proactive compliance management.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 items-start mb-8"
           >
             <a href="#pricing">
-              <Button size="lg" className="bg-[#3FB9CB] text-white hover:bg-[#34a0b0] border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
-                Get Started
+              <Button size="lg" className="bg-slate-900 text-white hover:bg-slate-800 border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
+                Get Started Today
               </Button>
             </a>
             <a href="https://calendly.com/nikunj-eazytaxes/meeting-with-nikunj-eazytaxes" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 h-14 rounded-xl text-lg">
-                Book a Call
+              <Button size="lg" variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-8 h-14 rounded-xl text-lg">
+                Book a Free Call
               </Button>
             </a>
           </motion.div>
-          <div className="mt-6">
-            <Link href="/start" className="text-sm text-slate-500 hover:text-[#3FB9CB] underline underline-offset-4">
-              Not sure which service applies?
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-6"
+          >
+            <Link href="/start" className="text-sm text-white/90 hover:text-white underline underline-offset-4">
+              Not sure... which service? Start Here.
             </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. HOW CAN WE HELP YOU TODAY */}
+      <section className="py-24 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">How can we help you today?</h2>
+        <p className="text-center text-slate-600 mb-12">Select the scenario that best describes your current needs to find a tailored path forward.</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {situations.map((sit, i) => (
+            <Link key={i} href={sit.link || `/contact?service=Tax%20%26%20Compliance&plan=${encodeURIComponent(sit.title)}#form`}> // turbo
+              <div className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer h-full flex flex-col justify-center items-center text-center">
+                <div>
+                  <h3 className="font-bold text-slate-800 text-lg mb-2">{sit.title}</h3>
+                  {sit.subtitle && <p className="text-sm text-slate-600 mb-4">{sit.subtitle}</p>}
+                  <div className="h-1 w-12 bg-slate-100 group-hover:bg-primary transition-colors rounded-full mx-auto"></div>
+                </div>
+                <div className="flex items-center text-primary font-medium text-sm group-hover:translate-x-2 transition-transform mt-4">
+                  Start Now <ArrowRight className="ml-2 w-4 h-4" />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. FULL SPECTRUM TAX AND COMPLIANCE */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Comprehensive Coverage. No Exceptions.</h2>
+            <p className="text-slate-600 text-lg">We handle the complexity so you can focus on your life and business.</p>
           </div>
-          <div className="scroll-down-container mt-12">
-            <div className="chevron"></div>
-            <div className="chevron"></div>
-            <div className="chevron"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { title: "Federal & Multi-State Excellence", desc: "Precision filing for every jurisdiction that impacts you." },
+              { title: "Strategic Compliance", desc: "More than just forms—we ensure you meet Individual, Corporate, and Partnership standards." },
+              { title: "Global Activity Expertise", desc: "Expert handling of cross-border obligations and foreign tax credits." },
+              { title: "Historical Corrections", desc: "We audit and amend prior-year filings to fix errors and recover overpayments." },
+              { title: "Proactive Regulatory Support", desc: "As tax laws evolve, we adjust your strategy in real-time." },
+              { title: "Ongoing Compliance Support", desc: "Continuous support where requirements evolve and change over time." }
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                  <CheckCircle2 className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
+                  <p className="text-slate-600">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 2. TRUST BAR */}
+      {/* 4. THE EAZYTAXES ADVANTAGE */}
+      <section className="py-20 bg-white border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">The eazytaxes advantage</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {deliverables.map((item, i) => (
+              <div key={i} className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3FB9CB] to-[#34a0b0] flex items-center justify-center shadow-lg">
+                  <Check className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-bold text-slate-900 text-lg mb-2">{item.name}</h3>
+                <p className="text-sm text-slate-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. TRUST BAR */}
       <section className="py-16 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -158,7 +238,7 @@ export default function TaxCompliance() {
         </div>
       </section>
 
-      {/* 3. PRICING OPTIONS */}
+      {/* 6. PRICING OPTIONS */}
       <section id="pricing" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-slate-900">Pricing options</h2>
@@ -195,11 +275,8 @@ export default function TaxCompliance() {
               </div>
 
               <Link href={`/contact?service=Tax%20%26%20Compliance&plan=${opt.title}#form`} className="w-full">
-                <Button className={`w-full h-14 rounded-full font-bold text-base transition-all duration-300 ${opt.featured
-                  ? 'bg-brand-gradient hover:brightness-110 text-white shadow-[0_0_20px_rgba(63,185,203,0.3)] border-0'
-                  : 'bg-black hover:bg-slate-800 text-white border-0'
-                  }`}>
-                  {opt.cta}
+                <Button className="w-full h-14 rounded-xl font-bold text-base transition-all duration-300 bg-slate-900 hover:bg-slate-800 text-white border-0">
+                  Get Started
                 </Button>
               </Link>
 
@@ -224,66 +301,6 @@ export default function TaxCompliance() {
               </div>
             </motion.div>
           ))}
-        </div>
-      </section>
-
-      {/* 4. WHAT YOU GET */}
-      <section className="py-20 bg-white border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">What you get</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {deliverables.map((item, i) => (
-              <div key={i} className="flex items-center gap-4 p-6 bg-slate-50 rounded-xl border border-slate-100">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary flex-shrink-0">
-                  <Check className="w-5 h-5" />
-                </div>
-                <span className="font-medium text-slate-700">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. CHOOSE YOUR SITUATION */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">Choose your situation</h2>
-        <p className="text-center text-slate-600 mb-12">Fast paths to the right solution</p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {situations.map((sit, i) => (
-            <Link key={i} href={sit.link || `/checkout?service=tax-compliance&case=${sit.case}`}>
-              <div className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer h-full flex flex-col justify-between">
-                <div>
-                  <h3 className="font-bold text-slate-800 text-lg mb-2">{sit.title}</h3>
-                  <div className="h-1 w-12 bg-slate-100 group-hover:bg-primary transition-colors rounded-full mb-4"></div>
-                </div>
-                <div className="flex items-center text-primary font-medium text-sm group-hover:translate-x-2 transition-transform">
-                  Start Now <ArrowRight className="ml-2 w-4 h-4" />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 6. WHAT WE COVER */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-10">What we cover</h2>
-          <ul className="space-y-4 text-left inline-block">
-            {[
-              "US federal and state tax filings",
-              "Individual, business, and entity compliance",
-              "Cross-border filing obligations triggered by foreign activity",
-              "Prior-year corrections and catch-up filings",
-              "Ongoing compliance support where requirements evolve"
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-lg text-slate-700">
-                <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

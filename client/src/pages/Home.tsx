@@ -226,7 +226,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-xs uppercase tracking-widest text-slate-400 mb-4">ABOUT US</p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 md:mb-10 tracking-tight leading-tight max-w-3xl">
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 md:mb-10 tracking-tight leading-tight max-w-3xl">
                 A long-term partner, built around trust, clarity, and meaningful involvement.
               </h2>
 
@@ -238,7 +238,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <div className="mb-6 min-h-[80px] flex items-center">
+                  <div className="mt-12 mb-6 min-h-[80px] flex items-center">
                     <div>
                       <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-2 italic">
                         "{taglines[currentTagline]}"
@@ -281,7 +281,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-20 md:mb-32"
+            className="mb-20 md:mb-32 mt-20 md:mt-28"
           >
             {/* Mobile: Show heading first */}
             <div className="md:hidden mb-8">
@@ -342,7 +342,7 @@ export default function Home() {
               </div>
 
               {/* Image - Shows first on mobile (after heading), second on desktop */}
-              <div className="relative order-1 md:order-2">
+              <div className="relative order-1 md:order-2 max-w-lg mx-auto">
                 <div
                   className="relative overflow-hidden shadow-2xl z-10"
                   style={{
@@ -355,6 +355,10 @@ export default function Home() {
                     alt="Professional team working"
                     className="w-full h-full object-cover"
                   />
+                  {/* Red line top */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+                  {/* Red line bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
                 </div>
                 {/* Decorative blob */}
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#3FB9CB]/10 rounded-full blur-2xl -z-10"></div>
@@ -371,7 +375,14 @@ export default function Home() {
           >
             <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
               {/* Image */}
-              <div className="order-2 md:order-1 overflow-hidden rounded-xl md:rounded-2xl shadow-lg w-full" style={{ aspectRatio: '1/1', maxHeight: '350px' }}>
+              <div
+                className="order-2 md:order-1 relative overflow-hidden shadow-2xl z-10 w-full"
+                style={{
+                  borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+                  aspectRatio: '1/1',
+                  maxHeight: '350px'
+                }}
+              >
                 <img
                   src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
                   alt="Tax documents and calculator"
@@ -381,7 +392,7 @@ export default function Home() {
 
               {/* Content */}
               <div className="order-1 md:order-2">
-                <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
                   Uncompromising Professionalism in Every Engagement
                 </h3>
 
