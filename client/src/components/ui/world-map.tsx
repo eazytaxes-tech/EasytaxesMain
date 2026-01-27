@@ -68,7 +68,7 @@ export function WorldMap() {
                             }}
                             className="w-full h-full"
                         >
-                            <ZoomableGroup zoom={1} minZoom={1} maxZoom={1}>
+                            <ZoomableGroup zoom={1} minZoom={1} maxZoom={1} disablePanning disableZooming>
                                 <Geographies geography={geoUrl}>
                                     {({ geographies }: { geographies: any[] }) =>
                                         geographies.map((geo: any) => (
