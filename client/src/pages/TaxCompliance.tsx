@@ -155,13 +155,12 @@ export default function TaxCompliance() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {situations.map((sit, i) => (
             <Link key={i} href={sit.link || `/contact?service=Tax%20%26%20Compliance&plan=${encodeURIComponent(sit.title)}#form`}>
-              <div className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer h-full flex flex-col justify-center items-center text-center">
+              <div className="group bg-slate-50 p-6 rounded-xl hover:bg-slate-100 transition-all cursor-pointer h-full flex flex-col justify-center items-center text-center">
                 <div>
-                  <h3 className="font-bold text-slate-800 text-lg mb-2">{sit.title}</h3>
+                  <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#3FB9CB] transition-colors">{sit.title}</h3>
                   {sit.subtitle && <p className="text-sm text-slate-600 mb-4">{sit.subtitle}</p>}
-                  <div className="h-1 w-12 bg-slate-100 group-hover:bg-primary transition-colors rounded-full mx-auto"></div>
                 </div>
-                <div className="flex items-center text-primary font-medium text-sm group-hover:translate-x-2 transition-transform mt-4">
+                <div className="flex items-center text-[#3FB9CB] font-medium text-sm group-hover:translate-x-2 transition-transform mt-4">
                   Start Now <ArrowRight className="ml-2 w-4 h-4" />
                 </div>
               </div>
