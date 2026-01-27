@@ -3,8 +3,7 @@ import {
     ComposableMap,
     Geographies,
     Geography,
-    Marker,
-    ZoomableGroup
+    Marker
 } from "react-simple-maps";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -68,98 +67,98 @@ export function WorldMap() {
                             }}
                             className="w-full h-full"
                         >
-                            <ZoomableGroup zoom={1} minZoom={1} maxZoom={1} disablePanning disableZooming>
-                                <Geographies geography={geoUrl}>
-                                    {({ geographies }: { geographies: any[] }) =>
-                                        geographies.map((geo: any) => (
-                                            <Geography
-                                                key={geo.rsmKey}
-                                                geography={geo}
-                                                fill="#E2E8F0"
-                                                stroke="#CBD5E1"
-                                                strokeWidth={0.5}
-                                                style={{
-                                                    default: { outline: "none" },
-                                                    hover: { fill: "#CBD5E1", outline: "none" },
-                                                    pressed: { outline: "none" },
-                                                }}
-                                            />
-                                        ))
-                                    }
-                                </Geographies>
 
-                                {markers.map(({ name, coordinates, markerOffset }) => (
-                                    <Marker
-                                        key={name}
-                                        coordinates={coordinates as [number, number]}
-                                        onMouseEnter={() => setHoveredMarker(name)}
-                                        onMouseLeave={() => setHoveredMarker(null)}
-                                    >
-                                        {/* Pulsing ring */}
-                                        <circle r={10} fill="#3FB9CB" opacity={0.3}>
-                                            <animate
-                                                attributeName="r"
-                                                from="5"
-                                                to="15"
-                                                dur="2s"
-                                                begin="0s"
-                                                repeatCount="indefinite"
-                                            />
-                                            <animate
-                                                attributeName="opacity"
-                                                from="0.5"
-                                                to="0"
-                                                dur="2s"
-                                                begin="0s"
-                                                repeatCount="indefinite"
-                                            />
-                                        </circle>
-
-                                        {/* Inner solid dot */}
-                                        <circle
-                                            r={hoveredMarker === name ? 6 : 4}
-                                            fill="#3FB9CB"
-                                            stroke="#ffffff"
-                                            strokeWidth={1.5}
-                                            className="transition-all duration-300"
+                            <Geographies geography={geoUrl}>
+                                {({ geographies }: { geographies: any[] }) =>
+                                    geographies.map((geo: any) => (
+                                        <Geography
+                                            key={geo.rsmKey}
+                                            geography={geo}
+                                            fill="#E2E8F0"
+                                            stroke="#CBD5E1"
+                                            strokeWidth={0.5}
+                                            style={{
+                                                default: { outline: "none" },
+                                                hover: { fill: "#CBD5E1", outline: "none" },
+                                                pressed: { outline: "none" },
+                                            }}
                                         />
+                                    ))
+                                }
+                            </Geographies>
 
-                                        {/* Interactive Label */}
-                                        <AnimatePresence>
-                                            {hoveredMarker === name && (
-                                                <motion.g
-                                                    initial={{ opacity: 0, y: 5 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0, y: 5 }}
+                            {markers.map(({ name, coordinates, markerOffset }) => (
+                                <Marker
+                                    key={name}
+                                    coordinates={coordinates as [number, number]}
+                                    onMouseEnter={() => setHoveredMarker(name)}
+                                    onMouseLeave={() => setHoveredMarker(null)}
+                                >
+                                    {/* Pulsing ring */}
+                                    <circle r={10} fill="#3FB9CB" opacity={0.3}>
+                                        <animate
+                                            attributeName="r"
+                                            from="5"
+                                            to="15"
+                                            dur="2s"
+                                            begin="0s"
+                                            repeatCount="indefinite"
+                                        />
+                                        <animate
+                                            attributeName="opacity"
+                                            from="0.5"
+                                            to="0"
+                                            dur="2s"
+                                            begin="0s"
+                                            repeatCount="indefinite"
+                                        />
+                                    </circle>
+
+                                    {/* Inner solid dot */}
+                                    <circle
+                                        r={hoveredMarker === name ? 6 : 4}
+                                        fill="#3FB9CB"
+                                        stroke="#ffffff"
+                                        strokeWidth={1.5}
+                                        className="transition-all duration-300"
+                                    />
+
+                                    {/* Interactive Label */}
+                                    <AnimatePresence>
+                                        {hoveredMarker === name && (
+                                            <motion.g
+                                                initial={{ opacity: 0, y: 5 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 5 }}
+                                            >
+                                                <rect
+                                                    x="-40"
+                                                    y={markerOffset - 15}
+                                                    width="80"
+                                                    height="18"
+                                                    rx="4"
+                                                    fill="#0f172a"
+                                                    opacity="0.9"
+                                                />
+                                                <text
+                                                    textAnchor="middle"
+                                                    y={markerOffset - 3}
+                                                    style={{
+                                                        fontFamily: "Outfit, sans-serif",
+                                                        fill: "#fff",
+                                                        fontSize: "9px",
+                                                        fontWeight: "700",
+                                                        pointerEvents: "none",
+                                                    }}
                                                 >
-                                                    <rect
-                                                        x="-40"
-                                                        y={markerOffset - 15}
-                                                        width="80"
-                                                        height="18"
-                                                        rx="4"
-                                                        fill="#0f172a"
-                                                        opacity="0.9"
-                                                    />
-                                                    <text
-                                                        textAnchor="middle"
-                                                        y={markerOffset - 3}
-                                                        style={{
-                                                            fontFamily: "Outfit, sans-serif",
-                                                            fill: "#fff",
-                                                            fontSize: "9px",
-                                                            fontWeight: "700",
-                                                            pointerEvents: "none",
-                                                        }}
-                                                    >
-                                                        {name}
-                                                    </text>
-                                                </motion.g>
-                                            )}
-                                        </AnimatePresence>
-                                    </Marker>
-                                ))}
-                            </ZoomableGroup>
+                                                    {name}
+                                                </text>
+                                            </motion.g>
+                                        )}
+                                    </AnimatePresence>
+                                </Marker>
+                            ))}
+
                         </ComposableMap>
                     </div>
                 </div>

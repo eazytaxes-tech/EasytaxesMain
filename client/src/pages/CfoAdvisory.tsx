@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, TrendingUp, BarChart3, Briefcase, Globe, Layers, Users, PieChart, Wallet, LineChart, Handshake, CheckCircle2, Zap } from "lucide-react";
+import { Check, ArrowRight, TrendingUp, BarChart3, Briefcase, Globe, Layers, Users, PieChart, Wallet, LineChart, Handshake, Target, Zap, DollarSign } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -62,13 +62,22 @@ export default function CfoAdvisory() {
         }
     ];
 
-    const services = [
-        { icon: PieChart, title: "Financial Planning & Analysis", desc: "Budget vs. actual, forecasting, scenario modeling, KPI dashboards" },
-        { icon: Wallet, title: "Fundraising Support", desc: "Pitch deck financials, data room prep, investor questions, cap table management" },
-        { icon: TrendingUp, title: "Strategic Planning", desc: "Annual planning, growth strategy, pricing analysis, market expansion modeling" },
-        { icon: LineChart, title: "Cash Management", desc: "Cash flow forecasting, working capital optimization, banking relationships" },
-        { icon: Users, title: "Team Building", desc: "Accounting team oversight, FP&A hiring, process documentation" },
-        { icon: Handshake, title: "M&A & Transactions", desc: "Buy-side/sell-side diligence, valuation support, deal structure analysis" }
+    const deliverables = [
+        { name: "Financial Planning", desc: "Budget vs. actual, forecasting, scenario modeling" },
+        { name: "Fundraising Support", desc: "Pitch deck financials and investor materials" },
+        { name: "Strategic Planning", desc: "Annual planning and growth strategy" },
+        { name: "Cash Management", desc: "Cash flow forecasting and optimization" },
+        { name: "Team Building", desc: "Accounting team oversight and hiring" },
+        { name: "M&A Support", desc: "Due diligence and deal structure analysis" }
+    ];
+
+    const situations = [
+        { title: "Pre-seed & Seed Stage", subtitle: "Get financial foundations right from the start with expert CFO guidance.", case: "preseed" },
+        { title: "Series A/B Growth", subtitle: "Scale your finance function as you grow revenue and headcount.", case: "growth" },
+        { title: "Fundraising Preparation", subtitle: "Build investor-ready financials and data rooms that close deals.", case: "fundraising" },
+        { title: "M&A & Transactions", subtitle: "Navigate buy-side or sell-side diligence with confidence.", case: "ma" },
+        { title: "Board & Investor Reporting", subtitle: "Deliver professional board packages and investor updates.", case: "reporting" },
+        { title: "General Advisory", subtitle: "Not seeing your situation? Let's discuss your unique requirements.", link: "/start" }
     ];
 
     return (
@@ -76,21 +85,14 @@ export default function CfoAdvisory() {
             <Navbar />
 
             {/* 1. HERO */}
-            <section className="bg-[#6366f1] min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+            <section className="bg-[#3FB9CB] min-h-screen flex items-center justify-center text-white relative overflow-hidden">
                 <div className="absolute inset-0">
                     <img
                         src="/START HERE SECTION PHOTOS/CFO-Advisory.jpg"
-                        onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            if (e.currentTarget.parentElement) {
-                                e.currentTarget.parentElement.style.backgroundColor = '#6366f1';
-                                e.currentTarget.parentElement.style.background = 'linear-gradient(to right, #6366f1, #14b8a6)';
-                            }
-                        }}
-                        alt="Generic CFO Office"
+                        alt="CFO Advisory"
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#6366f1]/90 to-[#14b8a6]/80"></div>
+                    <div className="absolute inset-0 bg-[#3FB9CB]/70"></div>
                 </div>
                 <div className="w-full px-8 md:px-12 lg:px-16 relative z-10 text-left py-20">
                     <motion.div
@@ -124,112 +126,123 @@ export default function CfoAdvisory() {
                         className="flex flex-col sm:flex-row gap-4 items-start mb-8"
                     >
                         <a href="#pricing">
-                            <Button size="lg" className="bg-white text-[#6366f1] hover:bg-blue-50 border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
-                                Get Started
+                            <Button size="lg" className="bg-slate-900 text-white hover:bg-slate-800 border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
+                                Get Started Today
                             </Button>
                         </a>
                         <a href="https://calendly.com/nikunj-eazytaxes/meeting-with-nikunj-eazytaxes" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" variant="outline" className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 px-8 h-14 rounded-xl text-lg">
-                                Book Discovery Call
+                                Book a Free Call
                             </Button>
                         </a>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                        className="mt-6"
+                    >
+                        <Link href="/start" className="text-sm text-white/90 hover:text-white underline underline-offset-4">
+                            Not sure which service? Start Here.
+                        </Link>
                     </motion.div>
                 </div>
             </section>
 
-            {/* 2. TRUST BAR */}
-            <section className="py-16 bg-white border-b border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold text-[#6366f1] mb-2">50+</div>
-                            <div className="text-slate-600 font-medium">Companies Advised</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold text-[#6366f1] mb-2">$200M+</div>
-                            <div className="text-slate-600 font-medium">Capital Raised</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold text-[#6366f1] mb-2">20+ Years</div>
-                            <div className="text-slate-600 font-medium">Combined CFO Experience</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. WHO NEEDS A CFO */}
+            {/* 2. HOW CAN WE HELP YOU TODAY */}
             <section className="py-24 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-slate-900 text-center mb-16">Who needs a Fractional CFO?</h2>
+                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">How can we help you today?</h2>
+                <p className="text-center text-slate-600 mb-12">Select the scenario that best describes your current needs to find a tailored path forward.</p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-                        <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                            <Briefcase className="text-[#6366f1]" /> Company Stage
-                        </h3>
-                        <ul className="space-y-4">
-                            {[
-                                "Pre-seed and seed stage startups",
-                                "Series A/B growth companies",
-                                "Bootstrapped profitable businesses",
-                                "Companies preparing for fundraising",
-                                "Businesses planning exits or acquisitions"
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-3 text-slate-700">
-                                    <CheckCircle2 className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-                        <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                            <Zap className="text-[#6366f1]" /> Common Triggers
-                        </h3>
-                        <ul className="space-y-4">
-                            {[
-                                "Raised or raising capital",
-                                "Revenue $1M-$50M annual",
-                                "Board requesting better financials",
-                                "Outgrown your bookkeeper's capabilities",
-                                "Need strategic finance, not just accounting"
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-3 text-slate-700">
-                                    <CheckCircle2 className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {situations.map((sit, i) => (
+                        <Link key={i} href={sit.link || `/contact?service=CFO&plan=${encodeURIComponent(sit.title)}#form`}>
+                            <div className="group bg-slate-50 p-6 rounded-xl hover:bg-slate-100 transition-all cursor-pointer h-full flex flex-col justify-center items-center text-center">
+                                <div>
+                                    <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#3FB9CB] transition-colors">{sit.title}</h3>
+                                    {sit.subtitle && <p className="text-sm text-slate-600 mb-4">{sit.subtitle}</p>}
+                                </div>
+                                <div className="flex items-center text-[#3FB9CB] font-medium text-sm group-hover:translate-x-2 transition-transform mt-4">
+                                    Start Now <ArrowRight className="ml-2 w-4 h-4" />
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </section>
 
-
-            {/* 4. CFO SERVICES WE PROVIDE (GRID) */}
+            {/* 3. FULL SPECTRUM COVERAGE */}
             <section className="py-20 bg-slate-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4">CFO Services We Provide</h2>
-                        <p className="text-slate-600 text-lg">Comprehensive financial leadership tailored to your needs.</p>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-slate-900 mb-4">Strategic Finance Without the Full-Time Cost</h2>
+                        <p className="text-slate-600 text-lg">Get senior-level CFO expertise tailored to your growth stage.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {services.map((service, i) => (
-                            <div key={i} className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="w-12 h-12 rounded-full border-2 border-slate-900 flex items-center justify-center mb-6">
-                                    <service.icon className="w-6 h-6 text-slate-900" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {[
+                            { title: "Fractional Flexibility", desc: "Scale CFO hours up or down as your business needs evolve—no long-term employment commitment.", icon: Layers },
+                            { title: "Fundraising Expertise", desc: "We've helped clients raise over $200M combined. We know what investors want to see.", icon: TrendingUp },
+                            { title: "Operational Focus", desc: "We integrate with your team and tools, becoming an extension of your operations, not an outsider.", icon: Users },
+                            { title: "Data-Driven Decisions", desc: "Real-time dashboards, scenario modeling, and KPI tracking to guide strategic choices.", icon: BarChart3 },
+                            { title: "Cross-Industry Experience", desc: "SaaS, e-commerce, professional services, and more—we understand diverse business models.", icon: Globe },
+                            { title: "Beyond the Numbers", desc: "We don't just report financials; we help you understand unit economics, burn rate, and growth levers.", icon: Briefcase }
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                                    <item.icon className="w-6 h-6 text-slate-900" />
                                 </div>
-                                <h3 className="font-bold text-slate-900 text-lg mb-3">{service.title}</h3>
-                                <p className="text-slate-600 leading-relaxed">{service.desc}</p>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
+                                    <p className="text-slate-600">{item.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 5. PRICING OPTIONS */}
+            {/* 4. THE EAZYTAXES ADVANTAGE */}
+            <section className="py-20 bg-white border-y border-slate-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">What to expect</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {deliverables.map((item, i) => (
+                            <div key={i} className="text-center">
+                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3FB9CB] to-[#34a0b0] flex items-center justify-center shadow-lg">
+                                    <Check className="w-8 h-8 text-white" />
+                                </div>
+                                <h3 className="font-bold text-slate-900 text-lg mb-2">{item.name}</h3>
+                                <p className="text-sm text-slate-600">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 5. TRUST BAR */}
+            <section className="py-16 bg-slate-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div className="text-5xl font-bold text-primary mb-2">50+</div>
+                            <div className="text-slate-600 font-medium">Companies Advised</div>
+                        </div>
+                        <div>
+                            <div className="text-5xl font-bold text-primary mb-2">$200M+</div>
+                            <div className="text-slate-600 font-medium">Capital Raised</div>
+                        </div>
+                        <div>
+                            <div className="text-5xl font-bold text-primary mb-2">20+ Years</div>
+                            <div className="text-slate-600 font-medium">Combined CFO Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 6. PRICING OPTIONS */}
             <section id="pricing" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-slate-900">Choose Your Engagement Level</h2>
+                    <h2 className="text-3xl font-bold text-slate-900">Pricing options</h2>
                     <p className="text-slate-600 mt-2">Flexible CFO support that scales with your business.</p>
                 </div>
 
@@ -242,12 +255,12 @@ export default function CfoAdvisory() {
                             transition={{ delay: i * 0.1 }}
                             viewport={{ once: true }}
                             className={`relative rounded-[2.5rem] p-10 flex flex-col ${opt.featured
-                                ? 'bg-white text-slate-900 shadow-2xl border-2 border-[#6366f1] scale-105 z-10'
+                                ? 'bg-white text-slate-900 shadow-2xl border-2 border-slate-900 scale-105 z-10'
                                 : 'bg-white text-slate-900 border border-slate-200 shadow-sm'
                                 }`}
                         >
                             {opt.featured && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#6366f1] text-white px-6 py-2 rounded-full text-sm font-bold">
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-bold border-2 border-slate-900">
                                     Most Popular
                                 </div>
                             )}
@@ -257,14 +270,14 @@ export default function CfoAdvisory() {
                             </div>
 
                             <div className="mb-8">
-                                <div className="text-4xl font-bold text-slate-900">
-                                    {opt.price}<span className="text-lg font-normal text-slate-500">{opt.period}</span>
+                                <div className="text-5xl font-bold text-slate-900">
+                                    {opt.price}
                                 </div>
                             </div>
 
                             <Link href={opt.title.includes("Full") ? "/contact" : `/contact?service=CFO&plan=${opt.title}#form`} className="w-full">
-                                <Button className={`w-full h-14 rounded-xl font-bold text-base transition-all duration-300 border-0 ${opt.featured ? 'bg-[#6366f1] hover:bg-[#4f46e5] text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
-                                    {opt.cta}
+                                <Button className="w-full h-14 rounded-xl font-bold text-base transition-all duration-300 bg-slate-900 hover:bg-slate-800 text-white border-0">
+                                    Get Started
                                 </Button>
                             </Link>
 
@@ -272,7 +285,7 @@ export default function CfoAdvisory() {
 
                             <div className="flex-grow">
                                 <p className="text-sm font-semibold mb-6 text-slate-900">
-                                    Includes:
+                                    What you will get
                                 </p>
                                 <ul className="space-y-4">
                                     {opt.features.map((feature, idx) => (
@@ -292,32 +305,91 @@ export default function CfoAdvisory() {
                 </div>
             </section>
 
-            {/* 6. PROCESS */}
-            <section className="py-20 bg-slate-900 text-white">
+            {/* 7. PROOF / TRUST */}
+            <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-16">How It Works</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                        <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-slate-700 z-0"></div>
-
+                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-16">Why clients choose Eazytaxes</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { title: "Discovery Call", desc: "We discuss your business, current state, and financial needs" },
-                            { title: "Scope & Proposal", desc: "Custom engagement plan with clear deliverables and pricing" },
-                            { title: "Onboarding", desc: "Access to systems, context gathering, initial assessment (Week 1)" },
-                            { title: "Ongoing Partnership", desc: "Regular deliverables, strategic counsel, and proactive guidance" }
-                        ].map((step, i) => (
-                            <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#6366f1] to-[#14b8a6] flex items-center justify-center text-2xl font-bold shadow-lg mb-6 border-4 border-slate-800">
-                                    {i + 1}
+                            { icon: <Target />, text: "Senior-level CFO expertise at a fraction of full-time cost" },
+                            { icon: <DollarSign />, text: "Proven track record helping clients raise over $200M" },
+                            { icon: <Zap />, text: "Fast onboarding and immediate impact on financial operations" },
+                            { icon: <Handshake />, text: "Collaborative approach that integrates with your existing team" }
+                        ].map((item, i) => (
+                            <div key={i} className="text-center p-6">
+                                <div className="w-16 h-16 mx-auto bg-slate-50 rounded-2xl flex items-center justify-center text-primary mb-6">
+                                    {item.icon}
                                 </div>
-                                <h3 className="font-bold text-xl mb-2">{step.title}</h3>
-                                <p className="text-sm text-slate-400">{step.desc}</p>
+                                <p className="text-slate-700 font-medium leading-relaxed">{item.text}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 7. FAQ */}
+            {/* 8. HOW IT WORKS */}
+            <section className="py-20 bg-slate-900 text-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-center mb-16">How it works</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                        <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-slate-700 z-0"></div>
+
+                        {[
+                            "Discovery call to discuss your business and financial needs",
+                            "Custom engagement plan with clear deliverables and pricing",
+                            "Onboarding and ongoing strategic partnership"
+                        ].map((step, i) => (
+                            <div key={i} className="relative z-10 flex flex-col items-center text-center">
+                                <div className="w-16 h-16 rounded-full bg-brand-gradient flex items-center justify-center text-2xl font-bold shadow-lg shadow-blue-500/20 mb-6 border-4 border-slate-800">
+                                    {i + 1}
+                                </div>
+                                <p className="text-lg font-medium text-slate-200 max-w-xs">{step}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 9. COMPARISON TABLE */}
+            <section className="py-20 bg-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">Advisory vs Strategic vs Full-Service</h2>
+                    <p className="text-center text-slate-600 mb-12">Understanding the differences in scope and engagement level</p>
+                    <div className="overflow-x-auto">
+                        <table className="w-full border-collapse bg-white shadow-lg rounded-xl overflow-hidden">
+                            <thead>
+                                <tr className="bg-brand-gradient text-white">
+                                    <th className="p-4 text-left font-bold">Feature</th>
+                                    <th className="p-4 text-center font-bold">Advisory</th>
+                                    <th className="p-4 text-center font-bold">Strategic CFO</th>
+                                    <th className="p-4 text-center font-bold">Full-Service</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    ["Monthly Price", "$3,500", "$6,500", "$12,000+"],
+                                    ["Hours/Month", "~10 hours", "~20 hours", "40+ hours"],
+                                    ["Financial Review", "Yes", "Yes", "Yes"],
+                                    ["Fundraising Support", "Basic", "Full", "Full"],
+                                    ["Board Participation", "No", "Limited", "Yes"],
+                                    ["Team Management", "No", "No", "Yes"],
+                                    ["M&A Support", "No", "Limited", "Full"],
+                                    ["Best For", "Early-stage", "Growth-stage", "Scale-ups"]
+                                ].map((row, i) => (
+                                    <tr key={i} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
+                                        <td className="p-4 font-semibold text-slate-700 border-t border-slate-200">{row[0]}</td>
+                                        <td className="p-4 text-center text-slate-600 border-t border-slate-200">{row[1]}</td>
+                                        <td className="p-4 text-center text-slate-600 border-t border-slate-200">{row[2]}</td>
+                                        <td className="p-4 text-center text-slate-600 border-t border-slate-200">{row[3]}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            {/* 10. FAQ */}
             <section className="py-24 max-w-3xl mx-auto px-4">
                 <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">FAQ</h2>
                 <Accordion type="single" collapsible className="w-full">
@@ -350,22 +422,26 @@ export default function CfoAdvisory() {
 
             <TestimonialsSection />
 
-            {/* 9. FINAL CTA */}
-            <section className="py-24 bg-gradient-to-br from-[#6366f1] to-[#14b8a6] text-white text-center">
+            {/* 12. FINAL CTA */}
+            <section className="py-24 bg-brand-gradient text-white text-center">
                 <div className="max-w-4xl mx-auto px-4">
                     <h2 className="text-4xl font-bold mb-8">Ready for Strategic Financial Leadership?</h2>
-                    <p className="text-xl text-blue-50 mb-10 max-w-2xl mx-auto">Book a discovery call to discuss how fractional CFO services can accelerate your growth.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Link href="/contact?service=CFO#form">
-                            <Button size="lg" className="bg-white text-[#6366f1] hover:bg-blue-50 border-0 font-bold px-10 h-14 rounded-xl text-lg shadow-xl hover:-translate-y-1 transition-all">
+                            <Button size="lg" className="bg-white text-primary hover:bg-blue-50 border-0 font-bold px-10 h-14 rounded-xl text-lg shadow-xl hover:-translate-y-1 transition-all">
                                 Get Started
                             </Button>
                         </Link>
                         <a href="https://calendly.com/nikunj-eazytaxes/meeting-with-nikunj-eazytaxes" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 px-10 h-14 rounded-xl text-lg backdrop-blur-sm">
-                                Book Discovery Call
+                                Book a Call
                             </Button>
                         </a>
+                    </div>
+                    <div className="mt-8">
+                        <Link href="/start" className="text-blue-100 hover:text-white underline underline-offset-4 font-medium">
+                            Not sure? Start Here
+                        </Link>
                     </div>
                 </div>
             </section>

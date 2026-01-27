@@ -94,6 +94,7 @@ export default function TaxResolution() {
         { title: "Have Unfiled Returns", case: "unfiled" },
         { title: "Owe Back Taxes", case: "debt" },
         { title: "Payroll Tax Issues", case: "payroll" },
+        { title: "General Advisory", link: "/start" },
     ];
 
     return (
@@ -167,20 +168,18 @@ export default function TaxResolution() {
 
             {/* 2. HOW CAN WE HELP YOU TODAY */}
             <section className="py-24 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">How can we help you today?</h2>
-                <p className="text-center text-slate-600 mb-12">Select the scenario that best describes your current IRS situation.</p>
+                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">Services</h2>
+                <p className="text-center text-slate-600 mb-12">Choose the service that fits your needs</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="services-grid">
                     {situations.map((sit, i) => (
                         <Link key={i} href={`/contact?service=Tax%20Resolution&plan=${encodeURIComponent(sit.title)}#form`}>
-                            <div className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer h-full flex flex-col justify-center items-center text-center">
-                                <div>
-                                    <h3 className="font-bold text-slate-800 text-lg mb-2">{sit.title}</h3>
-                                    <div className="h-1 w-12 bg-slate-100 group-hover:bg-primary transition-colors rounded-full mx-auto"></div>
+                            <div className="service-card group">
+                                <div className="service-icon-box">
+                                    <AlertTriangle className="w-8 h-8" />
                                 </div>
-                                <div className="flex items-center text-primary font-medium text-sm group-hover:translate-x-2 transition-transform mt-4">
-                                    Start Now <ArrowRight className="ml-2 w-4 h-4" />
-                                </div>
+                                <h3>{sit.title}</h3>
+                                <p>Get expert help resolving your tax issue</p>
                             </div>
                         </Link>
                     ))}
