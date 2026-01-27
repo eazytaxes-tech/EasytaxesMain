@@ -24,6 +24,14 @@ export async function onRequestPost(context) {
             additionalInfo: formData.get('additionalInfo'),
         };
 
+        // Validate required fields
+        if (!data.fullName || !data.email || !data.phone) {
+            return new Response(
+                JSON.stringify({ message: 'Missing required fields' }),
+                { status: 400, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+            );
+        }
+
         // Extract screening questions
         const screeningQA = [];
         let i = 1;
@@ -123,7 +131,8 @@ Expected Salary: ${data.expectedSalary}
         if (!emailResponse.ok) {
             const errorText = await emailResponse.text();
             console.error('MailChannels error:', errorText);
-            throw new Error(`Email sending failed: ${errorText}`);
+            console.error('Email data:', JSON.stringify(emailData, null, 2));
+            throw new Error(`Email sending failed: ${emailResponse.status} - ${errorText}`);
         }
 
         return new Response(

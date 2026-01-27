@@ -206,7 +206,6 @@ export default function JobApplication() {
                       id="email"
                       type="email"
                       required
-                      pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="john@example.com"
@@ -223,7 +222,7 @@ export default function JobApplication() {
                       id="phone"
                       type="tel"
                       required
-                      pattern="[+]?[0-9]{1,4}?[\s.\-]?[(]?[0-9]{1,4}[)]?[\s.\-]?[0-9]{1,4}[\s.\-]?[0-9]{1,9}"
+                      pattern="[+]?[0-9]{1,4}[\s.\-]?[(]?[0-9]{1,4}[)]?[\s.\-]?[0-9]{1,4}[\s.\-]?[0-9]{1,9}"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98765 43210"

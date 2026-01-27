@@ -7,16 +7,16 @@ export async function onRequestPost(context) {
     const { request, env } = context;
 
     try {
-        const formData = await request.formData();
+        // Parse JSON body instead of FormData
+        const data = await request.json();
 
-        // Extract form fields
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            subject: formData.get('subject'),
-            message: formData.get('message'),
-        };
+        // Validate required fields
+        if (!data.name || !data.email || !data.message) {
+            return new Response(
+                JSON.stringify({ message: 'Missing required fields' }),
+                { status: 400, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+            );
+        }
 
         // Build email content
         const emailBody = `
@@ -66,7 +66,8 @@ This email was sent from the contact form at eazytaxes.com
         if (!emailResponse.ok) {
             const errorText = await emailResponse.text();
             console.error('MailChannels error:', errorText);
-            throw new Error(`Email sending failed: ${errorText}`);
+            console.error('Email data:', JSON.stringify(emailData, null, 2));
+            throw new Error(`Email sending failed: ${emailResponse.status} - ${errorText}`);
         }
 
         return new Response(
