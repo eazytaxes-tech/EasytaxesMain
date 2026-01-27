@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, ShieldCheck, Shield, User, Globe, Clock, Layers, HelpCircle, CheckCircle2, AlertTriangle, FileText, DollarSign, Scale, Handshake, ClipboardCheck, Quote } from "lucide-react";
+import { Check, ArrowRight, ShieldCheck, Shield, User, Globe, Clock, Layers, HelpCircle, CheckCircle2, AlertTriangle, FileText, DollarSign, Scale, Handshake, ClipboardCheck, Quote, Mail, History, MinusCircle } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -196,16 +196,16 @@ export default function TaxResolution() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {[
-                            { title: "IRS Notices & Letters", desc: "Expert response to CP2000, CP504, Letter 525, and all IRS correspondence." },
-                            { title: "Audits & Examinations", desc: "Professional representation for individual, business, and correspondence audits." },
-                            { title: "Back Taxes & Unfiled Returns", desc: "Resolution for multiple years unfiled and large outstanding balances." },
-                            { title: "Levies & Liens", desc: "Immediate action to stop wage garnishments, bank levies, and release tax liens." },
-                            { title: "Payment Plans & Settlements", desc: "Negotiation of installment agreements, offers in compromise, and CNC status." },
-                            { title: "Penalty Abatement", desc: "Strategic requests for first-time penalty abatement and reasonable cause relief." }
+                            { title: "IRS Notices & Letters", desc: "Expert response to CP2000, CP504, Letter 525, and all IRS correspondence.", icon: Mail },
+                            { title: "Audits & Examinations", desc: "Professional representation for individual, business, and correspondence audits.", icon: ClipboardCheck },
+                            { title: "Back Taxes & Unfiled Returns", desc: "Resolution for multiple years unfiled and large outstanding balances.", icon: History },
+                            { title: "Levies & Liens", desc: "Immediate action to stop wage garnishments, bank levies, and release tax liens.", icon: Scale },
+                            { title: "Payment Plans & Settlements", desc: "Negotiation of installment agreements, offers in compromise, and CNC status.", icon: Handshake },
+                            { title: "Penalty Abatement", desc: "Strategic requests for first-time penalty abatement and reasonable cause relief.", icon: MinusCircle }
                         ].map((item, i) => (
                             <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
-                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                                    <CheckCircle2 className="w-6 h-6 text-green-600" />
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                                    <item.icon className="w-6 h-6 text-slate-900" />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, FileText, Shield, User, Building, Globe, Clock, AlertTriangle, Layers, HelpCircle, CheckCircle2, Quote } from "lucide-react";
+import { Check, ArrowRight, FileText, Shield, User, Building, Globe, Clock, AlertTriangle, Layers, HelpCircle, CheckCircle2, Quote, MapPin, Target, History, RefreshCw } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -179,16 +179,16 @@ export default function TaxCompliance() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { title: "Federal & Multi-State Excellence", desc: "Precision filing for every jurisdiction that impacts you." },
-              { title: "Strategic Compliance", desc: "More than just forms—we ensure you meet Individual, Corporate, and Partnership standards." },
-              { title: "Global Activity Expertise", desc: "Expert handling of cross-border obligations and foreign tax credits." },
-              { title: "Historical Corrections", desc: "We audit and amend prior-year filings to fix errors and recover overpayments." },
-              { title: "Proactive Regulatory Support", desc: "As tax laws evolve, we adjust your strategy in real-time." },
-              { title: "Ongoing Compliance Support", desc: "Continuous support where requirements evolve and change over time." }
+              { title: "Federal & Multi-State Excellence", desc: "Precision filing for every jurisdiction that impacts you.", icon: MapPin },
+              { title: "Strategic Compliance", desc: "More than just forms—we ensure you meet Individual, Corporate, and Partnership standards.", icon: Target },
+              { title: "Global Activity Expertise", desc: "Expert handling of cross-border obligations and foreign tax credits.", icon: Globe },
+              { title: "Historical Corrections", desc: "We audit and amend prior-year filings to fix errors and recover overpayments.", icon: History },
+              { title: "Proactive Regulatory Support", desc: "As tax laws evolve, we adjust your strategy in real-time.", icon: Shield },
+              { title: "Ongoing Compliance Support", desc: "Continuous support where requirements evolve and change over time.", icon: RefreshCw }
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6 text-green-600" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                  <item.icon className="w-6 h-6 text-slate-900" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>

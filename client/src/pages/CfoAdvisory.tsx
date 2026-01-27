@@ -63,12 +63,12 @@ export default function CfoAdvisory() {
     ];
 
     const services = [
-        { icon: <PieChart />, title: "Financial Planning & Analysis", desc: "Budget vs. actual, forecasting, scenario modeling, KPI dashboards" },
-        { icon: <Wallet />, title: "Fundraising Support", desc: "Pitch deck financials, data room prep, investor questions, cap table management" },
-        { icon: <TrendingUp />, title: "Strategic Planning", desc: "Annual planning, growth strategy, pricing analysis, market expansion modeling" },
-        { icon: <LineChart />, title: "Cash Management", desc: "Cash flow forecasting, working capital optimization, banking relationships" },
-        { icon: <Users />, title: "Team Building", desc: "Accounting team oversight, FP&A hiring, process documentation" },
-        { icon: <Handshake />, title: "M&A & Transactions", desc: "Buy-side/sell-side diligence, valuation support, deal structure analysis" }
+        { icon: PieChart, title: "Financial Planning & Analysis", desc: "Budget vs. actual, forecasting, scenario modeling, KPI dashboards" },
+        { icon: Wallet, title: "Fundraising Support", desc: "Pitch deck financials, data room prep, investor questions, cap table management" },
+        { icon: TrendingUp, title: "Strategic Planning", desc: "Annual planning, growth strategy, pricing analysis, market expansion modeling" },
+        { icon: LineChart, title: "Cash Management", desc: "Cash flow forecasting, working capital optimization, banking relationships" },
+        { icon: Users, title: "Team Building", desc: "Accounting team oversight, FP&A hiring, process documentation" },
+        { icon: Handshake, title: "M&A & Transactions", desc: "Buy-side/sell-side diligence, valuation support, deal structure analysis" }
     ];
 
     return (
@@ -215,8 +215,8 @@ export default function CfoAdvisory() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, i) => (
                             <div key={i} className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center text-[#6366f1] mb-6">
-                                    {service.icon}
+                                <div className="w-12 h-12 rounded-full border-2 border-slate-900 flex items-center justify-center mb-6">
+                                    <service.icon className="w-6 h-6 text-slate-900" />
                                 </div>
                                 <h3 className="font-bold text-slate-900 text-lg mb-3">{service.title}</h3>
                                 <p className="text-slate-600 leading-relaxed">{service.desc}</p>

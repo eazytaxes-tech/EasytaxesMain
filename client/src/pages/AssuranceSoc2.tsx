@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, FileText, ClipboardCheck, ShieldCheck, BarChart3, FileCheck, Users, Clock, DollarSign, Quote, CheckCircle2 } from "lucide-react";
+import { Check, ArrowRight, FileText, ClipboardCheck, ShieldCheck, BarChart3, FileCheck, Users, Clock, DollarSign, Quote, CheckCircle2, Ruler, Laptop, MessageSquare, BookOpen, Settings } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -184,16 +184,16 @@ export default function AssuranceSoc2() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {[
-                            { title: "Tailored Engagements", desc: "We scope our work specifically to your stakeholders' requirements to avoid over-auditing." },
-                            { title: "Tech-Forward Approach", desc: "We utilize secure portals and modern tools to streamline document collection." },
-                            { title: "Experienced Team", desc: "Our team brings Big 4 experience to growing private companies." },
-                            { title: "Proactive Communication", desc: "No surprises. We communicate findings as they arise, not just at the deadline." },
-                            { title: "Regulatory Expertise", desc: "Deep knowledge of GAAP, GAAS, SSARS, and AICPA standards." },
-                            { title: "Control Recommendations", desc: "We don't just find errors; we help you improve your internal processes." }
+                            { title: "Tailored Engagements", desc: "We scope our work specifically to your stakeholders' requirements to avoid over-auditing.", icon: Ruler },
+                            { title: "Tech-Forward Approach", desc: "We utilize secure portals and modern tools to streamline document collection.", icon: Laptop },
+                            { title: "Experienced Team", desc: "Our team brings Big 4 experience to growing private companies.", icon: Users },
+                            { title: "Proactive Communication", desc: "No surprises. We communicate findings as they arise, not just at the deadline.", icon: MessageSquare },
+                            { title: "Regulatory Expertise", desc: "Deep knowledge of GAAP, GAAS, SSARS, and AICPA standards.", icon: BookOpen },
+                            { title: "Control Recommendations", desc: "We don't just find errors; we help you improve your internal processes.", icon: Settings }
                         ].map((item, i) => (
                             <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
-                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                                    <CheckCircle2 className="w-6 h-6 text-green-600" />
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                                    <item.icon className="w-6 h-6 text-slate-900" />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
