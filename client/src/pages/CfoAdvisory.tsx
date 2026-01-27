@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, TrendingUp, BarChart3, Briefcase, Globe, Layers, Users, PieChart, Wallet, LineChart, Handshake, CheckCircle2 } from "lucide-react";
+import { Check, ArrowRight, TrendingUp, BarChart3, Briefcase, Globe, Layers, Users, PieChart, Wallet, LineChart, Handshake, CheckCircle2, Zap } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
