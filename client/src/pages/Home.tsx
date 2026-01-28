@@ -42,7 +42,7 @@ export default function Home() {
         <HeroBackground />
 
         <div className="container relative z-10 max-w-7xl mx-auto">
-          <div className="hero-content-centered flex flex-col items-center mt-6 md:mt-16">
+          <div className="hero-content-centered flex flex-col items-center mt-6 md:-mt-16">
             <h1 className="text-[3rem] leading-[1.1] sm:text-6xl md:text-7xl lg:text-[5rem] font-black tracking-tight text-slate-900 font-sans mb-6 sm:mb-8" style={{ fontWeight: 900, WebkitTextStroke: '0.5px currentColor' }}>
               <span className="block sm:inline">Clarity. Control.</span>{' '}
               <span className="block sm:inline font-serif text-[#3FB9CB] not-italic tracking-wide">Accountability.</span>
@@ -54,7 +54,7 @@ export default function Home() {
             </div>
 
             {/* Intro block */}
-            <p className="text-base md:text-lg text-slate-900 max-w-3xl mx-auto font-normal mt-4 sm:mt-6 mb-10 sm:mb-14">
+            <p className="text-lg md:text-xl text-slate-900 max-w-3xl mx-auto font-normal mt-6 sm:mt-8 mb-10 sm:mb-14">
               Eazytaxes Inc. is a US-based professional services firm offering tax, compliance, assurance, and advisory services to businesses and individuals.
             </p>
 
@@ -165,10 +165,10 @@ export default function Home() {
                     <div className="text-[#3FB9CB] mb-3 sm:mb-4">
                       {service.icon}
                     </div>
-                    <h3 className="text-xs sm:text-base md:text-lg font-bold text-slate-900 mb-1 sm:mb-2 group-hover:text-[#3FB9CB] transition-colors leading-snug">
+                    <h3 className="text-sm sm:text-base md:text-xl font-bold text-slate-900 mb-1 sm:mb-2 group-hover:text-[#3FB9CB] transition-colors leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-slate-600 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-2">
+                    <p className="text-slate-600 text-xs sm:text-xs md:text-base leading-relaxed line-clamp-2">
                       {service.description}
                     </p>
                   </div>

@@ -54,7 +54,7 @@ export default function Careers() {
             <Navbar />
 
             {/* Hero */}
-            <section className="bg-white min-h-screen flex items-center justify-center text-slate-900 relative overflow-hidden">
+            <section className="bg-white min-h-screen flex items-center justify-center text-slate-900 relative overflow-hidden py-20">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -64,86 +64,78 @@ export default function Careers() {
                     />
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
-                    >
-                        Join the Eazytaxes Team
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 font-light"
-                    >
-                        Join our growing team serving USA, UK, and Middle East clients. Build your career in international tax and accounting services.
-                    </motion.p>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <a href="#openings">
-                            <Button size="lg" className="bg-[#3FB9CB] text-white hover:bg-[#34a0b0] border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
-                                View Openings
-                            </Button>
-                        </a>
-                    </motion.div>
-                    <div className="scroll-down-container mt-12">
-                        <div className="chevron"></div>
-                        <div className="chevron"></div>
-                        <div className="chevron"></div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Values / Why Join */}
-            <section className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="mb-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <p className="text-xs uppercase tracking-widest text-slate-400 mb-4">WHY JOIN US</p>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-10 tracking-tight leading-tight max-w-3xl">
-                                Why Join Eazytaxes?
-                            </h2>
-                        </motion.div>
-                    </div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {[
-                                { num: "01.", title: "International Exposure", desc: "Work with clients from USA, UK, and Middle East markets. Gain global experience." },
-                                { num: "02.", title: "Remote Work Flexibility", desc: "Work from home or our Nashik office. We value results over location." },
-                                { num: "03.", title: "Professional Growth", desc: "Certification support (EA, CPA), continuous training, and clear career progression paths." },
-                                { num: "04.", title: "Competitive Benefits", desc: "Health insurance, performance bonuses, and modern tools & technology." }
-                            ].map((item, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                                    className="p-5 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-all group cursor-pointer"
-                                >
-                                    <p className="text-xs text-slate-400 mb-3">{item.num}</p>
-                                    <h4 className="text-sm md:text-base font-bold text-slate-900 group-hover:text-[#3FB9CB] transition-colors leading-snug mb-2">{item.title}</h4>
-                                    <p className="text-xs md:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-                                </motion.div>
-                            ))}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                    {/* Desktop: Left-Right Layout, Mobile: Stacked */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        {/* Left: Hero Content */}
+                        <div className="text-center lg:text-left">
+                            <motion.h1
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+                            >
+                                Join the Eazytaxes Team
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="text-xl md:text-2xl text-slate-600 mb-10 font-light"
+                            >
+                                Join our growing team serving USA, UK, and Middle East clients. Build your career in international tax and accounting services.
+                            </motion.p>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="flex justify-center lg:justify-start"
+                            >
+                                <a href="#openings">
+                                    <Button size="lg" className="bg-[#3FB9CB] text-white hover:bg-[#34a0b0] border-0 font-bold px-8 h-14 rounded-xl text-lg shadow-lg">
+                                        View Openings
+                                    </Button>
+                                </a>
+                            </motion.div>
                         </div>
-                    </motion.div>
+
+                        {/* Right: Why Join Us */}
+                        <div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                className="text-center lg:text-left mb-8"
+                            >
+                                <p className="text-xs uppercase tracking-widest text-slate-400 mb-4">WHY JOIN US</p>
+                                <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
+                                    Why Join Eazytaxes?
+                                </h2>
+                            </motion.div>
+
+                            <div className="grid grid-cols-1 gap-4">
+                                {[
+                                    { num: "01.", title: "International Exposure", desc: "Work with clients from USA, UK, and Middle East markets. Gain global experience." },
+                                    { num: "02.", title: "Remote Work Flexibility", desc: "Work from home or our Nashik office. We value results over location." },
+                                    { num: "03.", title: "Professional Growth", desc: "Certification support (EA, CPA), continuous training, and clear career progression paths." },
+                                    { num: "04.", title: "Competitive Benefits", desc: "Health insurance, performance bonuses, and modern tools & technology." }
+                                ].map((item, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: i * 0.1 }}
+                                        className="p-4 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-all group cursor-pointer"
+                                    >
+                                        <p className="text-xs text-slate-400 mb-2">{item.num}</p>
+                                        <h4 className="text-sm md:text-base font-bold text-slate-900 group-hover:text-[#3FB9CB] transition-colors leading-snug mb-1">{item.title}</h4>
+                                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 

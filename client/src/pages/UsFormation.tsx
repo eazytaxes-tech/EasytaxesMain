@@ -154,20 +154,21 @@ export default function UsFormation() {
 
             {/* 2. HOW CAN WE HELP YOU TODAY */}
             <section className="py-24 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">Launch your business</h2>
-                <p className="text-center text-slate-600 mb-12">Select the path that fits your goals.</p>
+                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">How can we help you today?</h2>
+                <p className="text-center text-slate-600 mb-12">Select the scenario that best describes your current needs to find a tailored path forward.</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto px-2 sm:px-0">
                     {situations.map((sit, i) => (
                         <Link key={i} href={sit.link || `/contact?service=US%20Formation&plan=${encodeURIComponent(sit.title)}#form`}>
-                            <div className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer h-full flex flex-col justify-center items-center text-center">
-                                <div>
-                                    <h3 className="font-bold text-slate-800 text-lg mb-2">{sit.title}</h3>
-                                    {sit.subtitle && <p className="text-sm text-slate-600 mb-4">{sit.subtitle}</p>}
-                                    <div className="h-1 w-12 bg-slate-100 group-hover:bg-primary transition-colors rounded-full mx-auto"></div>
-                                </div>
-                                <div className="flex items-center text-primary font-medium text-sm group-hover:translate-x-2 transition-transform mt-4">
-                                    Start Now <ArrowRight className="ml-2 w-4 h-4" />
+                            <div className="p-4 sm:p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-all group cursor-pointer h-full flex flex-col items-center justify-center text-center">
+                                <h3 className="text-sm sm:text-base md:text-xl font-bold text-slate-900 mb-1 sm:mb-2 group-hover:text-[#3FB9CB] transition-colors leading-snug">
+                                    {sit.title}
+                                </h3>
+                                <p className="text-slate-600 text-xs sm:text-xs md:text-base leading-relaxed line-clamp-2 mb-3">
+                                    {sit.subtitle}
+                                </p>
+                                <div className="text-[#3FB9CB] font-semibold text-xs sm:text-sm mt-auto">
+                                    Start Now
                                 </div>
                             </div>
                         </Link>
@@ -212,8 +213,8 @@ export default function UsFormation() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {deliverables.map((item, i) => (
                             <div key={i} className="text-center">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3FB9CB] to-[#34a0b0] flex items-center justify-center shadow-lg">
-                                    <Check className="w-8 h-8 text-white" />
+                                <div className="w-16 h-16 mx-auto mb-4 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                                    <Check className="w-8 h-8 text-slate-900" />
                                 </div>
                                 <h3 className="font-bold text-slate-900 text-lg mb-2">{item.name}</h3>
                                 <p className="text-sm text-slate-600">{item.desc}</p>

@@ -168,18 +168,22 @@ export default function TaxResolution() {
 
             {/* 2. HOW CAN WE HELP YOU TODAY */}
             <section className="py-24 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">Services</h2>
-                <p className="text-center text-slate-600 mb-12">Choose the service that fits your needs</p>
+                <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">How can we help you today?</h2>
+                <p className="text-center text-slate-600 mb-12">Select the scenario that best describes your current needs to find a tailored path forward.</p>
 
-                <div className="services-grid">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto px-2 sm:px-0">
                     {situations.map((sit, i) => (
-                        <Link key={i} href={`/contact?service=Tax%20Resolution&plan=${encodeURIComponent(sit.title)}#form`}>
-                            <div className="service-card group">
-                                <div className="service-icon-box">
-                                    <AlertTriangle className="w-8 h-8" />
+                        <Link key={i} href={sit.link || `/contact?service=Tax%20Resolution&plan=${encodeURIComponent(sit.title)}#form`}>
+                            <div className="p-4 sm:p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-all group cursor-pointer h-full flex flex-col items-center justify-center text-center">
+                                <h3 className="text-sm sm:text-base md:text-xl font-bold text-slate-900 mb-1 sm:mb-2 group-hover:text-[#3FB9CB] transition-colors leading-snug">
+                                    {sit.title}
+                                </h3>
+                                <p className="text-slate-600 text-xs sm:text-xs md:text-base leading-relaxed line-clamp-2 mb-3">
+                                    Get expert help resolving your tax issue
+                                </p>
+                                <div className="text-[#3FB9CB] font-semibold text-xs sm:text-sm mt-auto">
+                                    Start Now
                                 </div>
-                                <h3>{sit.title}</h3>
-                                <p>Get expert help resolving your tax issue</p>
                             </div>
                         </Link>
                     ))}
@@ -223,8 +227,8 @@ export default function TaxResolution() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {deliverables.map((item, i) => (
                             <div key={i} className="text-center">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3FB9CB] to-[#34a0b0] flex items-center justify-center shadow-lg text-white">
-                                    {item.icon}
+                                <div className="w-16 h-16 mx-auto mb-4 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                                    <Check className="w-8 h-8 text-slate-900" />
                                 </div>
                                 <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
                                 <p className="text-sm text-slate-600">{item.desc}</p>

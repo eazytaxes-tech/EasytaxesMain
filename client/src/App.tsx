@@ -19,6 +19,7 @@ import AssuranceSoc2 from "@/pages/AssuranceSoc2";
 import CfoAdvisory from "@/pages/CfoAdvisory";
 import Valuations from "@/pages/Valuations";
 import UsFormation from "@/pages/UsFormation";
+import Questionnaire from "@/pages/Questionnaire";
 
 import Careers from "@/pages/Careers";
 import JobApplication from "@/pages/JobApplication";
@@ -42,6 +43,7 @@ function Router() {
       <Route path="/cfo-advisory" component={CfoAdvisory} />
       <Route path="/valuations" component={Valuations} />
       <Route path="/us-formation" component={UsFormation} />
+      <Route path="/questionnaire" component={Questionnaire} />
 
       <Route path="/careers" component={Careers} />
       <Route path="/careers/:jobTitle/apply" component={JobApplication} />
